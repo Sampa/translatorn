@@ -1,0 +1,79 @@
+pk id, 
+bool irl (telefon/på plats), 
+varchar language, 
+varchar reference, 
+bool bill_sent, 
+bool bill_paid 
+int bill_sent_date, 
+int bill_paid_date 
+int created_date
+
+publika sidan:
+utseendet som det är nu, fast bara med formuläret "Akut tolk" och "inloggning"
+
+kundens sida:
+-skapa förfrågningar via formuläret "Boka tolk för avtalskunder"
+
+-lista fakturor och se status på dem, samt ladda ner pdferna
+
+admin för er anställda:
+skapa och lista kunder
+-ladda upp och lista fakturor för respektive kund
+-lista och läsa förfrågningar för avtalskunder
+lista och läsa förfrågningar från "Akut tolk"
+
+en sak till på admin för anställda: ändra status på fakturor
+
+-todo:
+-ta bort roller menyn för managers under uppdatera användare
+-fixa knappar translation för samma sida
+-formuläret för uppdatera bokning
+
+Funktionalitet:
+Kunden:
+-skapa bokningar via formuläret boka tolk för avtalskunder
+-lista kostnadsräkningar med status (sina egna) och ladda hem pdf:er av kostnadsräkningarna OM dem är klara
+-se bokningsnummer
+-logga in och se vilken information som är kopplad till sig själv
+-Chefer kan det ovan men ser alla bokningar gjorda av kunder till sitt företag istället (med namnet på den som gjorde bokningen)
+
+-Admin för translator:
+-Ändra en hel del rubriker/texter/sidinnehåll genom att klicka på dem när 'live editering' är aktiverat i toolbaren och man är på startsidan
+-Som ovan men via "Textblock" och "Sidor" i adminmenyn på kontrollpanelen
+Kontrollpanelen:
+Användare
+-Skapa kunder via Användare->Skapa->ny med användarnamn/e-post/lösenord/företag och checkbox för om användaren ska behandlas som "chef"
+-Se alla användarkonton och filtrera på användarnamn och e-post inkl ert eget konto
+-Uppdatera den registrerade informationen om användare genom att klicka på pennan där kunder listas
+-Via undermenyn 'Uppgifter' lägga in mer information som namn (t.ex Daniel van den Berg) och 'bio' (anteckningar om användaren) och 'plats' (t.ex avdelning)
+Bokningar
+-Lista alla bokningar och filtrera på språk, tolkningsplats (på plats=1/över telefon=2), datum,kund,telefonnr, företagsnamn
+-uppdatera en bokning via 'pennan' och där ändra vissa detaljer och ladda upp en kostnadsräkning som pdf
+-se alla detaljer för en bokning via 'ögat'
+-radera en bokning
+Företag
+-lista alla företag och filtrera listan
+-se alla detaljer om ett företag och anslutna kunder
+-uppdatera ett företag
+-radera ett företag
+Inställningar:
+-Ändra admin e-post (därifrån mail till användare skickas ut)
+
+Textblock:
+-se alla redigerbara text block på hemsidan och redigera dem
+
+Feedback:
+-Se alla inlägg gjorda från hemsidans kontaktformulär
+-se de som ni inte svarat på,
+-radera ett inlägg
+-svara via ett formulär (ett mail skickas till besökaren)
+
+Sidor: 
+-redigera statiska sidor (startsidan)
+Som att redigera textblock/rubriker men med lite mer möjligheter än att bara ändra ren text
+
+
+
+
+
+

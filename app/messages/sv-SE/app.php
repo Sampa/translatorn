@@ -1,0 +1,28 @@
+<?php
+    return [
+        'Send' => 'Skicka',
+        'Login' => 'Logga in',
+        'Book translator' => 'Boka tolk',
+        'Acute translator' => 'Akut tolk',
+        'Looking for a job?' => 'Söker du jobb?',
+        'For customers' => 'För avtalskunder',
+        'Book' => 'Boka',
+        'Home' => 'Hem',
+        'Sign out' => 'Logga ut',
+        'Users' => 'Användare',
+        'Manage users' => 'Hantera användare',
+        'New user' => 'Ny Användare',
+        'Create' => 'Skapa',
+        'Username' => 'Användarnamn',
+        'Update user account' => 'Uppdatera användarkonto',
+        'Account details' => 'Kontoinformation',
+        'Profile details' => 'Uppgifter',
+        'Assignments' => 'Roller',
+        'Pages' => 'Sidor',
+        'Save' => 'Spara',
+        'Is boss' => 'Är chef',
+        'Sign in' => 'Logga in',
+        'Password' => 'Lösenord',
+        'Remember me next time' => 'Kom ihåg mig',
+
+];
