@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?php if( Yii::$app->user->can('manager') ): ?>
             <?= Html::a(Yii::t('orders', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a(Yii::t('orders', 'Delete'), ['delete', 'id' => $model->id], [
+            <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
                     'confirm' => Yii::t('orders', 'Are you sure you want to delete this item?'),
@@ -29,7 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'language',
             'location',
-            'bill_sent',
+            [
+                'attribute'=> 'bill_sent',
+                'value' => function($model){
+                    if( $model->bill_sent ){
+                        return $model->billLink;
+                    } else{
+                        return 'Ej klar';
+                    }
+                },
+                'format' => 'html',
+            ],
             'created_date',
             [
                 'attribute' => 'type',

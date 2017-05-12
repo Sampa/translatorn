@@ -24,7 +24,7 @@ use yii\helpers\Url;
             'value' => function ($model) {
                 if ($model->username === 'root' && !Yii::$app->user->can('root'))
                     return $model->username;
-                return Html::a($model->username, ['/profile?id=' . $model->id], []);
+                return Html::a($model->username, Url::to(['/user/profile/show', 'id' => $model->id]), []);
             }
         ],
         'email:email',
@@ -32,7 +32,7 @@ use yii\helpers\Url;
             'attribute' => 'last_login_at',
             'value' => function ($model) {
                 if (!$model->last_login_at || $model->last_login_at == 0) {
-                    return Yii::t('app', 'Never');
+                    return Yii::t('user', 'Never');
                 } else if (extension_loaded('intl')) {
                     return Yii::t('app', '{0, date, MMMM dd, YYYY HH:mm}', [$model->last_login_at]);
                 } else {
@@ -51,7 +51,7 @@ use yii\helpers\Url;
                     if (!$model->isAdmin) {
                         return '
                     <a data-method="POST" data-confirm="' . Yii::t('app', 'Are you sure?') . '" href="' . Url::to(['resend-password', 'id' => $model->id]) . '">
-                    <span title="' . Yii::t('app', 'Generate and send new password to user') . '" class="glyphicon glyphicon-envelope">
+                    <span title="' . Yii::t('user', 'Generate and send new password to user') . '" class="glyphicon glyphicon-envelope">
                     </span> </a>';
                     }
                 },

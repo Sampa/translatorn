@@ -18,6 +18,6 @@ class RootRule extends Rule
      */
     public function execute($user, $item, $params)
     {
-        return Yii::$app->user->identity->username === 'daniel';
+        return Yii::$app->user->identity->username === 'root';
     }
 }

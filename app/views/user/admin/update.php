@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         [
                             'label' => Yii::t('app', 'Assignments'),
                             'url' => ['/user/admin/assignments', 'id' => $user->id],
-                            'visible' => isset(Yii::$app->extensions['dektrium/yii2-rbac']),
+                            'visible' => isset(Yii::$app->extensions['dektrium/yii2-rbac']) && Yii::$app->user->can('root'),
                         ],
                         '<hr>',
                         [
@@ -84,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                         ],
                         [
-                            'label' => Yii::t('app', 'Delete'),
+                            'label' => Yii::t('user', 'Delete'),
                             'url' => ['/user/admin/delete', 'id' => $user->id],
                             'linkOptions' => [
                                 'class' => 'text-danger',

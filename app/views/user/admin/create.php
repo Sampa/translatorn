@@ -18,7 +18,7 @@ use yii\helpers\Html;
  * @var dektrium\user\models\User $user
  */
 
-$this->title = Yii::t('app', 'Create a user account');
+$this->title = Yii::t('user', 'Create a user account');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

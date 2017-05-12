@@ -70,9 +70,14 @@ class ProfileController extends BaseProfileController
         if ($profile === null) {
             throw new NotFoundHttpException();
         }
-        if($id != $user->id && !$user->can('manager')){
-            throw new NotAcceptableHttpException(); // NotFoundHttpException();
+
+        if($id != $user->id){
+            if($user->can('manager') || $user->can('root')) {
+            }else{
+                throw new NotAcceptableHttpException(); // NotFoundHttpException();
+            }
         }
+
         $orderSearch = new OrdersSearch();
 
         if($profile->user->is_boss == null)

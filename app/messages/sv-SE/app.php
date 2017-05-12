@@ -24,5 +24,16 @@
         'Sign in' => 'Logga in',
         'Password' => 'Lösenord',
         'Remember me next time' => 'Kom ihåg mig',
-
+        'Edit book page' => 'Redigera boka',
+        'Update' => 'Uppdatera',
+        'Delete' => 'Radera',
+        'Title' => 'Titel',
+        'Date' => 'Datum',
+        'Yes' => 'Ja',
+        'No' => 'No',
+        'No records found' => 'Inga förfrågningar hittades',
+        'Phone' => 'Telefon',
+        'Name' => 'Namn',
+        'Anti-spam check' => 'Anti-spam kontroll',
+        'Subject' => 'Ämne',
 ];

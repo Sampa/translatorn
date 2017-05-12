@@ -12,9 +12,10 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="orders-update">
 
+    <div id="ordersForm" class="orders-create">
 
     <?= $this->render('_updateForm', [
         'model' => $model,
     ]) ?>
-
+    </div>
 </div>

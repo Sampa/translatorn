@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             Yii::t('app', 'Password')
                             . ($module->enablePasswordRecovery ?
                                 ' (' . Html::a(
-                                    Yii::t('app', 'Forgot password?'),
+                                    Yii::t('user', 'Forgot password?'),
                                     ['/user/recovery/request'],
                                     ['tabindex' => '5']
                                 )

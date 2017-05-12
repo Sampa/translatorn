@@ -2,8 +2,10 @@
 use yii\easyii\modules\page\api\Page;
 use yii\easyii\modules\text\api\Text;
 use yii\helpers\Html;
+use app\modules\akut\api\Akut;
 
-$page = Page::get('page-index');
+
+$page = Page::get('page-akut');
 
 $this->title = $page->seo('title', $page->model->title);
 ?>
@@ -14,8 +16,13 @@ $this->title = $page->seo('title', $page->model->title);
         <p><?= Text::get('akut-welcome-desc') ?></p>
     </div>
     <div class="container">
-        <div class="col-md-4 col-md-push-3" style="border: 1px solid green;">
-            form
+        <div class="col-md-4 col-md-push-3" style="">
+            <h3><?= Text::get('akut-form-title') ?></h3>
+            <?php if(Yii::$app->request->get(Akut::SENT_VAR)) : ?>
+                <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Meddelandet skickat.</h4>
+            <?php else : ?>
+                <?= Akut::form() ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>

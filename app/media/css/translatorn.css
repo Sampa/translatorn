@@ -242,17 +242,21 @@
 .orders-form .form-group{
     margin-bottom: 10px;
 }
-.orders-form  .form-group input.form-control,input-xs{
+.orders-form .form-group input.form-control{
     height: 30px;
     padding: 3px 8px;
     font-size: 13px;
     line-height: 1;
     border-radius: 4px;
 }
-#orders-time-pickers, #orders-time-end-picker, #orders-time-start-picker{
+.orders-time-pickers, .orders-time-end-picker, .orders-time-start-picker{
     padding: 0;
     /*width: 100px;*/
 }
+.grid-view select{
+    padding: 0;
+}
+
 #dtp-orders-datetime .input-group-addon{
     height: 14px;
     padding: 2px 12px;

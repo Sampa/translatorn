@@ -7,6 +7,7 @@ use app\models\Orders;
 use app\models\OrdersSearch;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
 
 /**
  * OrdersController implements the CRUD actions for Orders model.
@@ -115,6 +116,9 @@ class OrdersController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if(isset($this->files[0])){
+                $this->bill_sent = true;
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

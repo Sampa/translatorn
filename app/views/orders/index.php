@@ -42,18 +42,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
                 'format' => 'html',
+                'filter' => $searchModel->billSentList
             ],
              [
                  'attribute' => 'type',
                  'value' => function($model){
                     return $model->typeAsText;
-                }
+                 },
+                 'filter' =>$searchModel->typeList,
              ],
              'date',
             [
                 'attribute' => 'user_id',
                 'filter' => function($model) {
-                    return $model->getUserList();
+                    return $model->filterUserList;
                 },
                 'value' => function($model){
                     return $model->user->username;

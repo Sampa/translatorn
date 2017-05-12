@@ -41,6 +41,17 @@ class Orders extends \yii\db\ActiveRecord
     const ON_SITE = 1;
     const OTHER = 3;
     public $datetime = '1351351'; //remove when possible
+    public $creator;
+
+    public function init(){
+        parent::init();
+        $this->on(self::EVENT_AFTER_FIND,[$this,'setCustomProps']);
+    }
+
+    public function setCustomProps()
+    {
+        $this->creator = $this->getCreatorName();
+    }
     /**
      * @inheritdoc
      */
@@ -132,6 +143,17 @@ class Orders extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
+    public function getFilterUserList(){
+            $userArray = [
+                $this->user_id => $this->creator
+            ];
+            return $userArray;
+    }
+
+    public function getCreatorName(){
+        return $this->user->username;
+    }
+
     public function getTypeAsText(){
         if($this->type == self::ON_SITE)
             return Yii::t('orders','On site');
@@ -140,6 +162,24 @@ class Orders extends \yii\db\ActiveRecord
         else
             return Yii::t('orders', 'Other');
 
+    }
+
+    public function getTypeList(){
+        $statusArray = [
+            self::OVER_PHONE     => Yii::t('orders', 'Phone'),
+            self::ON_SITE => Yii::t('orders', 'Plats'),
+        ];
+
+        return $statusArray;
+    }
+
+    public function getBillSentList(){
+        $statusArray = [
+            0 => Yii::t('orders', 'Not sent'),
+            1 => Yii::t('orders', 'Sent'),
+        ];
+
+        return $statusArray;
     }
 
     public function getBillLink(){

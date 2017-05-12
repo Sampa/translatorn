@@ -41,8 +41,6 @@ use yii\easyii\modules\text\api\Text;
         <div class="col-md-11 col-md-push-1" id="navbar-menu">
             <?php
                 $bookImg = Html::tag('div','',['class' => 'book_icon']);
-//                    '<img data-scalestrategy="crop" height="144" src="//translatorn.se/____impro/1/onewebmedia/kalender%20vit%202.png"
-//style="background-color: rgba(0,0,0,0)">';
                 $akutImg = Html::tag('div', '', ['class' => 'akut_icon']);
                 $loginImg = '<img data-scalestrategy="crop" height="144" src="//translatorn.se/onewebstatic/aab87fd3f0.png" srcset="//translatorn.se/onewebstatic/aab87fd3f0.png 1x, //translatorn.se/onewebstatic/01c1532617.png 2x, //translatorn.se/onewebstatic/01c1532617.png 3x, //translatorn.se/onewebstatic/01c1532617.png 4x" style="display:block;">';
                 $jobImg = '<img data-scalestrategy="crop"  height="144" src="//translatorn.se/onewebstatic/f984bb86a1.png" srcset="//translatorn.se/onewebstatic/f984bb86a1.png 1x, //translatorn.se/onewebstatic/cb8db6ac75.png 2x, //translatorn.se/onewebstatic/cb8db6ac75.png 3x, //translatorn.se/onewebstatic/cb8db6ac75.png 4x" style="display:block;">';
@@ -50,17 +48,23 @@ use yii\easyii\modules\text\api\Text;
                 $labelBook = $bookImg.
                     Html::tag('h4', yii::t('app','Book translator'), ['class' => 'menu-text']) .
                     Html::tag('span', yii::t('app','For customers'), ['class' => 'menu-sub-text']);
+
                 $labelAkut = $akutImg.
                     Html::tag('h4', yii::t('app','Acute translator'), ['class' => 'menu-text']);
+
                 $labelLogin = $loginImg.
                     Html::tag('h4', yii::t('app','Login'), ['class' => 'menu-text']);
+
                 $labelJob = $jobImg.
                     Html::tag('h4', yii::t('app','Looking for a job?'), ['class' => 'menu-text']);
-                $labelLogout = $loginImg;
-                Yii::$app->user->isGuest ? '' :
-                $labelLogout .= Html::tag('h4', 'Sign out' , ['class'=> 'menu-text'] );
 
-                $labelBill = $loginImg. Html::tag('h4', 'Konto' , ['class'=> 'menu-text'] );
+                $labelEditBook = $jobImg.
+                    Html::tag('h4', yii::t('app','Edit book page'), ['class' => 'menu-text']);
+
+                $labelLogout = $loginImg;
+                Yii::$app->user->isGuest ? '' : $labelLogout .= Html::tag('h4', 'Sign out' , ['class'=> 'menu-text'] );
+
+                $labelBill = $loginImg. Html::tag('h4', 'Konto  ' , ['class'=> 'menu-text'] );
 
                 $labelCompany = $loginImg. Html::tag('h4', 'Företag' , ['class'=> 'menu-text'] );
             //hem
@@ -93,7 +97,11 @@ use yii\easyii\modules\text\api\Text;
                 ['label' =>$labelCompany, 'url' => ['/company/'],
                         'visible' =>Yii::$app->user->can('manager')],
 
-                ['label' => $labelJob, 'url' => ['/job/search']],
+                ['label' => $labelJob, 'url' => ['/job/search'],
+                        'visible' => false],
+
+                ['label' => $labelEditBook, 'url' => ['/orders/create'],
+                    'visible' => false]//Yii::$app->user->can('manager')]
             ];
 //                ['label' => $labelBook, 'url' => ['/order/create']]
             echo Menu::widget([

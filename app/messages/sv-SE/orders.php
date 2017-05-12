@@ -14,6 +14,7 @@ return [
     'Type' => 'Typ',
     'No' => 'Nej',
     'Not sent' => 'Ej klar',
+    'Sent' => 'Klar',
     'Bill' => 'Kostnadsräkning',
     'Bill number' => 'Bokningsnummer',
     'Orders' => 'Bokningar',
@@ -33,5 +34,6 @@ return [
     'Email' => 'E-post',
     'Time End' => 'Sluttid',
     'Update' => 'Ändra',
-    'Delte' => 'Radera'
+    'Delete' => 'Radera',
+    'Site' => 'Plats'
 ];

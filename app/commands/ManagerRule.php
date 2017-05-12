@@ -19,7 +19,7 @@ class ManagerRule extends Rule
     public function execute($user, $item, $params)
     {
         if(!Yii::$app->user->isGuest)
-            return Yii::$app->user->identity->username === 'manager';
+            return Yii::$app->user->identity->username === 'manager' || Yii::$app->user->identity->username === 'root';
         return false;
     }
 }

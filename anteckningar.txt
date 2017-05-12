@@ -1,12 +1,11 @@
-pk id, 
-bool irl (telefon/på plats), 
-varchar language, 
-varchar reference, 
-bool bill_sent, 
-bool bill_paid 
-int bill_sent_date, 
-int bill_paid_date 
-int created_date
+
+-todo:
+-ta bort roller menyn för managers under uppdatera användare
+-fixa knappars translation för samma sida
+-förnya formuläret för uppdatera bokning
+-viss filtrering sker via datatyper
+-kommande kostnadsräkningar visar fel
+-autofyll av boka tolk
 
 publika sidan:
 utseendet som det är nu, fast bara med formuläret "Akut tolk" och "inloggning"
@@ -24,11 +23,7 @@ lista och läsa förfrågningar från "Akut tolk"
 
 en sak till på admin för anställda: ändra status på fakturor
 
--todo:
--ta bort roller menyn för managers under uppdatera användare
--fixa knappar translation för samma sida
--formuläret för uppdatera bokning
-
+	
 Funktionalitet:
 Kunden:
 -skapa bokningar via formuläret boka tolk för avtalskunder
@@ -71,6 +66,8 @@ Feedback:
 Sidor: 
 -redigera statiska sidor (startsidan)
 Som att redigera textblock/rubriker men med lite mer möjligheter än att bara ändra ren text
+
+
 
 
 

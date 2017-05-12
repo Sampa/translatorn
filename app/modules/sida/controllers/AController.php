@@ -15,7 +15,7 @@ class AController extends Controller
     public function actionIndex()
     {
         $data = new ActiveDataProvider([
-            'query' => Page::find()->where(['title' => 'index'])->desc()
+            'query' => Page::find()->where(['title' => 'index'])->orWhere(['title'=>'Akut tolk'])->desc()
         ]);
         return $this->render('index', [
             'data' => $data
@@ -33,11 +33,11 @@ class AController extends Controller
             }
             else{
                 if($model->save()){
-                    $this->flash('success', Yii::t('easyii/sida', 'Page created'));
+                    $this->flash('success', Yii::t('sida', 'Page created'));
                     return $this->redirect(['/admin/'.$this->module->id]);
                 }
                 else{
-                    $this->flash('error', Yii::t('easyii', 'Create error. {0}', $model->formatErrors()));
+                    $this->flash('error', Yii::t('sida', 'Create error. {0}', $model->formatErrors()));
                     return $this->refresh();
                 }
             }
@@ -56,7 +56,7 @@ class AController extends Controller
         $model = Page::findOne($id);
 
         if($model === null){
-            $this->flash('error', Yii::t('easyii', 'Not found'));
+            $this->flash('error', Yii::t('sida', 'Not found'));
             return $this->redirect(['/admin/'.$this->module->id]);
         }
 
@@ -67,10 +67,10 @@ class AController extends Controller
             }
             else{
                 if($model->save()){
-                    $this->flash('success', Yii::t('easyii/sida', 'Page updated'));
+                    $this->flash('success', Yii::t('sida', 'Page updated'));
                 }
                 else{
-                    $this->flash('error', Yii::t('easyii', 'Update error. {0}', $model->formatErrors()));
+                    $this->flash('error', Yii::t('sida', 'Update error. {0}', $model->formatErrors()));
                 }
                 return $this->refresh();
             }
@@ -87,8 +87,8 @@ class AController extends Controller
         if(($model = Page::findOne($id))){
             $model->delete();
         } else {
-            $this->error = Yii::t('easyii', 'Not found');
+            $this->error = Yii::t('sida', 'Not found');
         }
-        return $this->formatResponse(Yii::t('easyii/sida', 'Page deleted'));
+        return $this->formatResponse(Yii::t('sida', 'Page deleted'));
     }
 }

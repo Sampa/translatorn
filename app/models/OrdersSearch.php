@@ -18,8 +18,8 @@ class OrdersSearch extends Orders
     public function rules()
     {
         return [
-            [['id', 'bill_sent', 'bill_paid', 'bill_sent_date', 'bill_paid_date', 'created_date', 'user_id', 'type'], 'integer'],
-            [['reference', 'language', 'location', 'date', 'made_by', 'bill_ref', 'other_type', 'phone', 'org_nr', 'message', 'made_by_email', 'bill_location', 'email', 'company_name', 'time_end'], 'safe'],
+            [['id','bill_paid', 'bill_sent_date', 'bill_paid_date', 'created_date',  'type'], 'integer'],
+            [['reference', 'bill_sent', 'user_id', 'language', 'location', 'date', 'made_by', 'bill_ref', 'other_type', 'phone', 'org_nr', 'message', 'made_by_email', 'bill_location', 'email', 'company_name', 'time_end'], 'safe'],
         ];
     }
 
@@ -51,7 +51,7 @@ class OrdersSearch extends Orders
      */
     public function search($params)
     {
-        $query = Orders::find();
+        $query = Orders::find()->joinWith(['user']);
 
         // add conditions that should always apply here
 
@@ -73,7 +73,6 @@ class OrdersSearch extends Orders
             'bill_sent_date' => $this->bill_sent_date,
             'bill_paid_date' => $this->bill_paid_date,
             'created_date' => $this->created_date,
-            'user_id' => $this->user_id,
             'type' => $this->type,
             'date' => $this->date,
             'time_end' => $this->time_end,
@@ -81,6 +80,7 @@ class OrdersSearch extends Orders
 
         $query->andFilterWhere(['like', 'reference', $this->reference])
             ->andFilterWhere(['like', 'language', $this->language])
+            ->andFilterWhere(['like', 'user.username', $this->user_id])
             ->andFilterWhere(['like', 'location', $this->location])
             ->andFilterWhere(['like', 'made_by', $this->made_by])
             ->andFilterWhere(['like', 'bill_ref', $this->bill_ref])

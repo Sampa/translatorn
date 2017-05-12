@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'admins' => ['daniel','manager']
+    'admins' => ['root','manager']
 ];

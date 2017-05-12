@@ -55,6 +55,14 @@ $config = [
         ],
         'i18n' => [
             'translations' => [
+                'akut' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'akut' => 'akut.php',
+                        'app/error' => 'error.php',
+                    ],
+                ],
                 'sida' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
