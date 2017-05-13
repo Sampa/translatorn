@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="greenbg">
     <div class="col-md-2 translatorn-page-summary translatorn-page-akut-summary" style="margin-left: 1px;">
-
+        <?php echo $profile->user->username;?>
         <h1><?= Text::get('profile-welcome-title') ?></h1>
 
         <p><?= Text::get('profile-welcome-desc') ?></p>
@@ -108,7 +108,8 @@ $this->params['breadcrumbs'][] = $this->title;
 //                                return $model->timeStart;
 //                            }
 //                       ],
-                        'bill_location',
+//                        'bill_location',
+                        'company_name',
                          [
                              'attribute' => 'user_id',
                              'filter' => function($model) {
@@ -118,13 +119,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                  return $model->user->username;
                              },
                              'options' => ['class' => 'col-md-1'],
-                             'visible' => !$profile->user->is_boss == null,
+//                             'visible' => !$profile->user->is_boss == null,
                          ],
                          [
                             'class' => 'yii\grid\ActionColumn',
-                            'header' => 'Hantera', 'options' => ['class' => 'col-md-1'],
+                            'header' => 'Hantera',
+//                             'linkOptions' => ['hej'],
+                             'options' => ['class' => 'col-md-1'],
                             'template' => '{view} ',
-                         ],
+                            'urlCreator' => function ($action,$model, $key, $index, $column) {
+                                return  \yii\helpers\Url::to(['/orders/view/','id'=>$model->id, 'konto'=>1]);
+                            },
+//                            'format' => 'html'
+                        ],
                     ],
                 ]); ?>
                 <?php Pjax::end(); ?>

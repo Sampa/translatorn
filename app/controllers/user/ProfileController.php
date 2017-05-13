@@ -79,11 +79,12 @@ class ProfileController extends BaseProfileController
         }
 
         $orderSearch = new OrdersSearch();
-
-        if($profile->user->is_boss == null)
-            $orderSearch->user_id = $id;
-        $dataProvider = $orderSearch->search(Yii::$app->request->queryParams);
-
+        $orderSearch->company_name = $company->name;
+        if($profile->user->is_boss == null) {
+            $dataProvider = $orderSearch->getOrdersByUserId($user->id);
+        }else {
+            $dataProvider = $orderSearch->search(Yii::$app->request->queryParams);
+        }
         return $this->render('show', [
             'profile' => $profile,
             'dataProvider' => $dataProvider,

@@ -80,6 +80,8 @@ class Orders extends \yii\db\ActiveRecord
             if (isset($this->files[0])) {
                 $this->bill_sent = true;
                 $this->bill_sent_date = new Expression('NOW()');
+            }else{
+                $this->bill_sent = false;
             }
             return true;
         } else {
@@ -191,8 +193,16 @@ class Orders extends \yii\db\ActiveRecord
 
     public function getLatest($userid,$limit){
         $query = new Query;
+// compose the query
+//        $query->select('id, bill_sent')
+//            ->from('orders')
+//            ->where('user_id' => $userid)
+//            ->limit(10);
+// build and execute the query
+//        $rows = $query->all();
+// alternatively, you can c
         $dataProvider = new ActiveDataProvider([
-            'query' => Orders::find()->users()->limit(5)
+            'query' => Orders::find()->users()->orderBy(['date' => SORT_DESC])
         ]);
         return $dataProvider;
     }

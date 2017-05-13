@@ -52,7 +52,12 @@ if($model->status == Akut::STATUS_ANSWERED) {
 <hr>
 <h2><small><?= Yii::t('akut', 'Answer') ?></small></h2>
 <?php $form = ActiveForm::begin() ?>
-    <?= $form->field($model, 'answer_subject') ?>
-    <?= $form->field($model, 'answer_text')->textarea(['style' => 'height: 250px']) ?>
+    <?= $form->field($model, 'answer_subject')->textInput([
+            'value' => 'Svar på din förfrågan'
+]) ?>
+    <?= $form->field($model, 'answer_text')->textarea([
+            'style' => 'height: 250px',
+            'value' => ''
+    ]) ?>
     <?= Html::submitButton(Yii::t('easyii', 'Skicka'), ['class' => 'btn btn-success send-answer']) ?>
 <?php ActiveForm::end() ?>

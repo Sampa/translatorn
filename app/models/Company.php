@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use app\models\User;
 /**
  * This is the model class for table "company".
  *
@@ -79,5 +80,8 @@ class Company extends \yii\db\ActiveRecord
     {
         $models = Company::find()->all();
         return ArrayHelper::map($models, 'id', 'name');
+    }
+    public function getUsers(){
+        return self::hasMany(User::className(),['id' => 'company_id']);
     }
 }

@@ -19,11 +19,12 @@ $this->title = $page->seo('title', $page->model->title);
         <!-- booking form -->
         <div class="col-md-8">
 
+            <?php Pjax::begin(); ?>
             <div id="ordersForm" class="orders-create">
-
                <?= $this->render('_form', ['model' => $model]) ?>
-
             </div>
+            <?= $ordersView ?>
+            <?php Pjax::end(); ?>
 
         </div>
         <!-- form side info -->

@@ -18,7 +18,8 @@ class OrdersQuery extends \yii\db\ActiveQuery
     {
         if(is_null($id))
             $id = \Yii::$app->user->id;
-        return $this->andWhere(['user_id' => $id]);
+//        $this->orderBy(['date', SORT_ASC]);
+        return $this->andWhere(['user_id' => $id])->andFilterWhere(['like','date',date('m')]);
     }
 
 //    public function max($int){

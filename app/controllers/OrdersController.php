@@ -71,9 +71,18 @@ class OrdersController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id=null)
+    public function actionView($id,$konto=null)
     {
-        return $this->render('view', [
+        $view = 'view';
+        if(Yii::$app->user->can('customer') && !Yii::$app->user->can('manager')) {
+            $this->layout = 'main';
+            if(!is_null($konto)){
+                $view = 'customerView';
+            }else {
+                $view = 'customerBokaView';
+            }
+        }
+        return $this->render($view, [
             'model' => $this->findModel($id),
         ]);
     }
@@ -87,23 +96,28 @@ class OrdersController extends Controller
     {
         $this->layout = 'main';
         $model = new Orders();
-
+        $ordersView = null;
         if ($model->load(Yii::$app->request->post())) {
             $model->bill_ref = rand(1,9) . rand(1,9) . rand(1,9) .' '. $model->date. ' ' . $model->language;
             if( $model->save() ) {
-               return $this->redirect(['view', 'id' => $model->id,'newly_created' => true]);
+                $ordersView = $this->renderPartial('customerBokaView', [
+                    'model' => $model,
+                ]);
+//               return $this->redirect(['view', 'id' => $model->id,'new' => true]);
             } else{
                 return var_dump($model->getErrors()) . Yii::t('orders', 'Could not save order');
             }
-        }else {
-            $dataProvider = $model->getLatest(Yii::$app->user->id,5);
-            return $this->render('create', [
-                'model' => $model,
-                'latest' => $dataProvider->getModels(),
-                'ordersView' =>''
-            ]);
         }
+
+        $dataProvider = $model->getLatest(Yii::$app->user->id,5); //limit not working and this is monthly
+        return $this->render('create', [
+            'model' => $model,
+            'latest' => $dataProvider->getModels(),
+            'ordersView' =>$ordersView
+        ]);
+
     }
+
 
     /**
      * Updates an existing Orders model.

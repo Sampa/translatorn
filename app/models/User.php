@@ -5,6 +5,7 @@ use developeruz\easyii_user\models\User as BaseUser;
 use Yii;
 class User extends BaseUser
 {
+
 //    public function register()
 //    {
 //

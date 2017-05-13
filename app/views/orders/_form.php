@@ -5,22 +5,43 @@ use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
 use kartik\time\TimePicker;
 use yii\widgets\Pjax;
+use app\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Orders */
 /* @var $form yii\widgets\ActiveForm */
+$user = Yii::$app->user->identity;
+$company = $user->company;
 ?>
 
 <div class="orders-form col-md-12">
-    <?php $form = ActiveForm::begin([]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['data-pjax' => '1']]); ?>
     <div class="col-md-6">
-        <?= $form->field($model, 'company_name')->textInput(['maxlength' => true, 'placeholder' => 'Företagsnamn *'])->label(false) ?>
+<!--        Företagsnamn -->
+        <?= $form->field($model, 'company_name')->textInput([
+            'maxlength' => true,
+            'placeholder' => 'Företagsnamn *',
+            'value' => $company->name,
+        ])->label(false) ?>
 
-        <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => 'Email *'])->label(false) ?>
-        <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'placeholder' => 'Telefon *'])->label(false) ?>
+<!--Företags email -->
+        <?= $form->field($model, 'email')->textInput([
+            'maxlength' => true,
+            'placeholder' => 'Email *',
+            'value' => $company->email,
+        ])->label(false) ?>
 
-
-        <?= $form->field($model, 'language')->textInput(['maxlength' => true, 'placeholder' => 'Språk *'])->label(false) ?>
+<!--       Företags telefon-->
+        <?= $form->field($model, 'phone')->textInput([
+            'maxlength' => true,
+            'placeholder' => 'Telefon *',
+            'value' => $company->phone,
+        ])->label(false) ?>
+<!--Språk-->
+        <?= $form->field($model, 'language')->textInput([
+            'maxlength' => true,
+            'placeholder' => 'Språk *',
+        ])->label(false) ?>
 
         <?= $form->field($model, 'date')->widget(
             DatePicker::classname(), [
@@ -32,7 +53,8 @@ use yii\widgets\Pjax;
                 'format' => 'dd/mm',
             ],
         ])->label(false) ?>
-        <div class="col-md-12" class="orders-time-pickers">
+
+        <div class="row" id="orders-time-pickers">
             <div class="col-md-6" class="orders-time-start-picker">
 
                 <?= $form->field($model, 'time_start')->widget(TimePicker::classname(), [
@@ -64,23 +86,38 @@ use yii\widgets\Pjax;
                 ])->label(false); ?>
 
             </div>
-            <?= $form->field($model, 'type')->radioList([
-                '1' => Yii::t('orders', 'On phone'),
-                '2' => Yii::t('orders', 'On site'),
-                '3' => Yii::t('orders', 'Other')
-            ], ['class' => 'radio'])->label(false) ?>
+
         </div>
+        <?= $form->field($model, 'type')->radioList([
+            '1' => Yii::t('orders', 'On phone'),
+            '2' => Yii::t('orders', 'On site'),
+            '3' => Yii::t('orders', 'Other')
+        ], ['class' => 'radio'])->label(false) ?>
 
 
     </div>
 
     <div class="col-md-6">
-        <?= $form->field($model, 'org_nr')->textInput(['maxlength' => true, 'placeholder' => 'Organisationsnummer *'])->label(false) ?>
 
+<!--        Företagets org nummer-->
+        <?= $form->field($model, 'org_nr')->textInput([
+            'maxlength' => true,
+            'placeholder' => 'Organisationsnummer *',
+            'value' => $company->org_nr,
+        ])->label(false) ?>
 
-        <?= $form->field($model, 'made_by')->textInput(['maxlength' => true, 'placeholder' => 'Beställare *'])->label(false) ?>
+<!--Användarens användarnamn-->
+        <?= $form->field($model, 'made_by')->textInput([
+            'maxlength' => true,
+            'placeholder' => 'Beställare *',
+            'value' => $user->username,
+            ])->label(false) ?>
 
-        <?= $form->field($model, 'made_by_email')->textInput(['maxlength' => true, 'placeholder' => 'Kontaktuppgift  *'])->label(false) ?>
+        <?= $form->field($model, 'made_by_email')->textInput([
+            'maxlength' => true,
+            'placeholder' => 'Kontaktuppgift  *',
+            'value' => $user->email,
+        ])->label(false) ?>
 
         <?= $form->field($model, 'bill_location')->textInput(['maxlength' => true, 'placeholder' => 'Kostnadsställe'])->label(false) ?>
 

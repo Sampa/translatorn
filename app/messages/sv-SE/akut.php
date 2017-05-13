@@ -23,5 +23,7 @@ return [
     'Phone' => 'Telefon',
     'Language' => 'Språk',
     'Translation should be made' => 'Tolkning skall ske',
-    'Start time' => 'Start'
+    'Start time' => 'Start',
+    'Subject' => 'Ämne',
+
 ];

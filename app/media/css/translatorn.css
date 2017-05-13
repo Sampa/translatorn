@@ -252,7 +252,7 @@
     line-height: 1;
     border-radius: 4px;
 }
-.orders-time-pickers, .orders-time-end-picker, .orders-time-start-picker{
+#orders-time-pickers, #orders-time-end-picker, #orders-time-start-picker{
     padding: 0;
     /*width: 100px;*/
 }

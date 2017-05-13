@@ -60,7 +60,6 @@ $config = [
             'locale' => 'sv-SE',
         ],
         'i18n' => [
-
             'translations' => [
                 'akut' => [
                     'class' => 'yii\i18n\PhpMessageSource',
@@ -120,9 +119,9 @@ $config = [
         // Override the urlManager component
         'urlManager' => [
             // Make sure, you include your app's default language.
-            'class' => 'codemix\localeurls\UrlManager',
+//            'class' => 'codemix\localeurls\UrlManager',
             // List all supported languages here
-            'languages' => ['sv-SE', 'sv'],
+//            'languages' => ['sv-SE', 'sv'],
             'rules' => [
                 'orders/view/<id:\d+>' => 'orders/view',
                 'orders/update/<id:\d+>' => 'orders/update',

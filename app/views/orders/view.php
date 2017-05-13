@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'language',
-            'location',
+//            'location',
             [
                 'attribute'=> 'bill_sent',
                 'value' => function($model){
