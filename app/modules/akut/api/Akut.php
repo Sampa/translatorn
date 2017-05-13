@@ -20,7 +20,7 @@ use yii\easyii\widgets\ReCaptcha;
 
 class Akut extends \yii\easyii\components\API
 {
-    const SENT_VAR = 'feedback_sent';
+    const SENT_VAR = 'akut_sent';
 
     private $_defaultFormOptions = [
         'errorUrl' => '',
@@ -36,7 +36,7 @@ class Akut extends \yii\easyii\components\API
         ob_start();
         $form = ActiveForm::begin([
             'enableClientValidation' => true,
-            'action' => Url::to(['/admin/feedback/send'])
+            'action' => Url::to(['/akut/send'])
         ]);
 
         echo Html::hiddenInput('errorUrl', $options['errorUrl'] ? $options['errorUrl'] : Url::current([self::SENT_VAR => 0]));
@@ -46,9 +46,9 @@ class Akut extends \yii\easyii\components\API
 
         echo $form->field($model, 'language')->textInput(['placeholder' => 'Språk *'])->label(false);
 
-        echo $form->field($model, 'language')->textInput(['placeholder' => 'Datum *'])->label(false);
+        echo $form->field($model, 'date')->textInput(['placeholder' => 'Datum *'])->label(false);
 
-        echo $form->field($model, 'language')->textInput(['placeholder' => 'Start tid *'])->label(false);
+        echo $form->field($model, 'time_start')->textInput(['placeholder' => 'Start tid *'])->label(false);
 
         echo $form->field($model, 'email')->input('email', ['placeholder' => 'E-post *'])->label(false);
 
@@ -61,7 +61,7 @@ class Akut extends \yii\easyii\components\API
 
         if($settings['enableCaptcha']) echo $form->field($model, 'reCaptcha')->widget(ReCaptcha::className())->label(false);
 
-        echo Html::submitButton(Yii::t('easyii', 'Send'), ['class' => 'btn btn-primary']);
+        echo Html::submitButton(Yii::t('app', 'Send'), ['class' => 'btn btn-primary']);
         ActiveForm::end();
 
         return ob_get_clean();

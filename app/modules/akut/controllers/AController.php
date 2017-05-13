@@ -60,8 +60,8 @@ class AController extends Controller
         $model = Akut::findOne($id);
 
         if($model === null){
-            $this->flash('error', Yii::t('easyii', 'Not found'));
-            return $this->redirect(['/admin/'.$this->module->id]);
+            $this->flash('error', Yii::t('akut', 'Not found'));
+            return $this->redirect(['/'.$this->module->id]);
         }
 
         if($model->status == Akut::STATUS_NEW){
@@ -69,7 +69,7 @@ class AController extends Controller
             $model->update();
         }
 
-        $postData = Yii::$app->request->post('Feedback');
+        $postData = Yii::$app->request->post('Akut');
         if($postData) {
             if(filter_var(Setting::get('admin_email'), FILTER_VALIDATE_EMAIL))
             {
@@ -78,23 +78,23 @@ class AController extends Controller
                 if($model->sendAnswer()){
                     $model->status = Akut::STATUS_ANSWERED;
                     $model->save();
-                    $this->flash('success', Yii::t('easyii/akut', 'Answer successfully sent'));
+                    $this->flash('success', Yii::t('akut', 'Answer successfully sent'));
                 }
                 else{
-                    $this->flash('error', Yii::t('easyii/akut', 'An error has occurred while sending mail'));
+                    $this->flash('error', Yii::t('akut', 'An error has occurred while sending mail'));
                 }
             }
             else {
-                $this->flash('error', Yii::t('easyii/akut', 'Please fill correct `Admin E-mail` in Settings'));
+                $this->flash('error', Yii::t('akut', 'Please fill correct `Admin E-mail` in Settings'));
             }
 
             return $this->refresh();
         }
         else {
             if(!$model->answer_text) {
-                $model->answer_subject = Yii::t('easyii/akut', $this->module->settings['answerSubject']);
-                if ($this->module->settings['answerHeader']) $model->answer_text = Yii::t('easyii/akut', $this->module->settings['answerHeader']) . " " . $model->name . ".\n";
-                if ($this->module->settings['answerFooter']) $model->answer_text .= "\n\n" . Yii::t('easyii/akut', $this->module->settings['answerFooter']);
+                $model->answer_subject = Yii::t('akut', $this->module->settings['answerSubject']);
+                if ($this->module->settings['answerHeader']) $model->answer_text = Yii::t('akut', $this->module->settings['answerHeader']) . " " . $model->name . ".\n";
+                if ($this->module->settings['answerFooter']) $model->answer_text .= "\n\n" . Yii::t('akut', $this->module->settings['answerFooter']);
             }
 
             return $this->render('view', [
@@ -108,15 +108,15 @@ class AController extends Controller
         $model = Akut::findOne($id);
 
         if($model === null){
-            $this->flash('error', Yii::t('easyii', 'Not found'));
+            $this->flash('error', Yii::t('akut', 'Not found'));
         }
         else{
             $model->status = Akut::STATUS_ANSWERED;
             if($model->update()) {
-                $this->flash('success', Yii::t('easyii/akut', 'Feedback updated'));
+                $this->flash('success', Yii::t('akut', 'Feedback updated'));
             }
             else{
-                $this->flash('error', Yii::t('easyii', 'Update error. {0}', $model->formatErrors()));
+                $this->flash('error', Yii::t('akut', 'Update error. {0}', $model->formatErrors()));
             }
         }
         return $this->back();
@@ -127,8 +127,8 @@ class AController extends Controller
         if(($model = Akut::findOne($id))){
             $model->delete();
         } else {
-            $this->error = Yii::t('easyii', 'Not found');
+            $this->error = Yii::t('akut', 'Not found');
         }
-        return $this->formatResponse(Yii::t('easyii/akut', 'Feedback deleted'));
+        return $this->formatResponse(Yii::t('akut', 'Feedback deleted'));
     }
 }

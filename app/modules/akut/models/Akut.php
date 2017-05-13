@@ -18,10 +18,6 @@ class Akut extends \yii\easyii\components\ActiveRecord
     const FLASH_KEY = 'eaysiicms_feedback_send_result';
 
     public $reCaptcha;
-    public $language;
-    public $time_start;
-    public $time_end;
-    public $date;
     public static function tableName()
     {
         return 'app_akut';
@@ -104,7 +100,7 @@ class Akut extends \yii\easyii\components\ActiveRecord
             Setting::get('admin_email'),
             $settings['subjectOnNewFeedback'],
             $settings['templateOnNewFeedback'],
-            ['akut' => $this, 'link' => Url::to(['/admin/feedback/a/view', 'id' => $this->primaryKey], true)]
+            ['akut' => $this, 'link' => Url::to(['/akut/a/view', 'id' => $this->primaryKey], true)]
         );
     }
 

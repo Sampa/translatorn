@@ -6,9 +6,9 @@ class AkutModule extends \yii\easyii\components\Module
     public $settings = [
         'mailAdminOnNewFeedback' => true,
         'subjectOnNewFeedback' => 'New feedback',
-        'templateOnNewFeedback' => '@app/modules/akut/mail/en/new_feedback',
+        'templateOnNewFeedback' => '@app/modules/akut/mail/sv/new_feedback',
 
-        'answerTemplate' => '@app/modules/akut/mail/en/answer',
+        'answerTemplate' => '@app/modules/akut/mail/sv/answer',
         'answerSubject' => 'Answer on your feedback message',
         'answerHeader' => 'Hello,',
         'answerFooter' => 'Best regards.',

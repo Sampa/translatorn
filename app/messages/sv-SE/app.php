@@ -36,4 +36,6 @@
         'Name' => 'Namn',
         'Anti-spam check' => 'Anti-spam kontroll',
         'Subject' => 'Ämne',
+        'Edit text' => 'Redigera text',
+        'Create text' => 'Skapa ny text',
 ];

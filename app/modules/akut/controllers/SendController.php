@@ -2,13 +2,13 @@
 namespace app\modules\akut\controllers;
 
 use Yii;
-use app\modules\akut\models\Feedback as FeedbackModel;
+use app\modules\akut\models\Akut as AkutModel;
 
 class SendController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        $model = new FeedbackModel;
+        $model = new AkutModel();
 
         $request = Yii::$app->request;
 

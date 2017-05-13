@@ -16,8 +16,8 @@ $this->title = $page->seo('title', $page->model->title);
         <p><?= Text::get('akut-welcome-desc') ?></p>
     </div>
     <div class="container">
-        <div class="col-md-4 col-md-push-3" style="">
-            <h3><?= Text::get('akut-form-title') ?></h3>
+        <div class="col-md-4 col-md-push-3">
+            <h3 class="white"><?= Text::get('akut-form-title') ?></h3>
             <?php if(Yii::$app->request->get(Akut::SENT_VAR)) : ?>
                 <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Meddelandet skickat.</h4>
             <?php else : ?>

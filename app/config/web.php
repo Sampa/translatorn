@@ -28,6 +28,9 @@ $config = [
             'tableName' => '{{%attachments}}', // Optional, default to 'attach_file'
 
         ],
+        'akut' => [
+            'class' => 'app\modules\akut\AkutModule',
+        ],
         'controllerMap' => [
             'migrate' => [
                 'class' => 'yii\console\controllers\MigrateController',
@@ -53,7 +56,11 @@ $config = [
             'defaultRoles' => ['customer'],
 
         ],
+        'formatter' => [
+            'locale' => 'sv-SE',
+        ],
         'i18n' => [
+
             'translations' => [
                 'akut' => [
                     'class' => 'yii\i18n\PhpMessageSource',
