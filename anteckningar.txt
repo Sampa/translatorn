@@ -1,11 +1,14 @@
 
+
+
 -todo:
--ta bort roller menyn för managers under uppdatera användare
--fixa knappars translation för samma sida
--förnya formuläret för uppdatera bokning
--viss filtrering sker via datatyper
--kommande kostnadsräkningar visar fel
--autofyll av boka tolk
+
+-kollo om filtrering sker via datatyper
+-fakturor filtrera på datum
+-användare is_boss se fakturor
+
+
+-production : stäng av forceCopy i appAsset
 
 publika sidan:
 utseendet som det är nu, fast bara med formuläret "Akut tolk" och "inloggning"
