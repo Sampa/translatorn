@@ -284,3 +284,7 @@
 #upcomingKR div span{
     color: #ff9999;
 }
+
+#orders-type label{
+    color: green;
+}

@@ -9,7 +9,7 @@ use kartik\time\TimePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="orders-form col-md-12">
+<div class="orders-form update-order col-md-12">
 
     <?php $form = ActiveForm::begin([
             'options' => ['enctype' => 'multipart/form-data']
@@ -65,11 +65,13 @@ use kartik\time\TimePicker;
             ])->label(false); ?>
 
         </div>
+        <div id="update-order-type">
         <?= $form->field($model, 'type')->radioList([
             '1' => Yii::t('orders', 'On phone'),
             '2' => Yii::t('orders', 'On site'),
             '3' => Yii::t('orders', 'Other')
-        ], ['class' => 'radio'])->label(false) ?>
+        ], ['class' => 'radio','style'=>''])->label(false) ?>
+        </div>
     </div>
 
 

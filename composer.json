@@ -13,6 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
         "noumo/easyii": "dev-master",
         "codemix/yii2-localeurls": "*",
         "dektrium/yii2-rbac": "1.0.0-alpha@dev",

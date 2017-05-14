@@ -14,4 +14,8 @@ return [
     'Reset' => 'Återställ',
     'Country' => 'Land',
     'Company' => 'Företag',
+    'Zip' => 'Postkod',
+    'Email' => 'E-post',
+    'Phone' => 'Telefon',
+    'City' => 'Stad',
 ];

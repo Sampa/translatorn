@@ -124,6 +124,7 @@ $config = [
 //            'languages' => ['sv-SE', 'sv'],
             'rules' => [
                 'orders/view/<id:\d+>' => 'orders/view',
+                'invoice/view/<id:\d+>' => 'invoice/view',
                 'orders/update/<id:\d+>' => 'orders/update',
                 'company/view/<id:\d+>' => 'company/view',
                 'company/update/<id:\d+>' => 'company/update',

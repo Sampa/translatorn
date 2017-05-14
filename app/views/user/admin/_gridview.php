@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
  * Created by PhpStorm.
  * User: Happyjuiced
@@ -12,7 +12,6 @@ use yii\helpers\Url;
 ?>
 
 <?php Pjax::begin() ?>
-
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
@@ -25,9 +24,33 @@ use yii\helpers\Url;
                 if ($model->username === 'root' && !Yii::$app->user->can('root'))
                     return $model->username;
                 return Html::a($model->username, Url::to(['/user/profile/show', 'id' => $model->id]), []);
-            }
+            },
+            'options' => ['class' => 'col-md-3'],
+
         ],
-        'email:email',
+        [
+            'attribute' => 'company_id',
+            'value' => function($model){
+                if(isset($model->company->name))
+                    return $model->company->name;
+                return 'Ej kopplad';
+            },
+            'visible' => !isset($inCompanyView),
+            'filter' => $searchModel->getCompanyList()
+        ],
+        [
+            'attribute' => 'is_boss',
+            'value' => function($model){
+                return $model->IsBossAsText;
+            },
+            'filter' => $searchModel->getIsBossList(),
+            'options' => ['class' => 'col-md-2']
+        ],
+        [
+            'attribute' => 'email',
+            'format' => 'email',
+//            'visible' => !isset($inCompanyView),
+        ],
         [
             'attribute' => 'last_login_at',
             'value' => function ($model) {
@@ -39,10 +62,12 @@ use yii\helpers\Url;
                     return date('Y-m-d G:i:s', $model->last_login_at);
                 }
             },
+            'visible' => !isset($inCompanyView)
         ],
         [
             'class' => 'yii\grid\ActionColumn',
             'template' => '{switch} {resend_password} {update} {delete}',
+            'options' => ['class' =>'col-md-1'],
             'buttons' => [
                 'resend_password' => function ($url, $model, $key) {
                     if ($model->username === 'root' && !Yii::$app->user->can('root')) {

@@ -8,4 +8,10 @@ return [
     'charset' => 'utf8',
     'tablePrefix' => '',
     'enableSchemaCache' => true,
+    'schemaMap' => [
+        'mysql' => [
+            'class' => 'yii\db\mysql\Schema',
+              'defaultSchema' => 'translatorn',
+        ],
+    ]
 ];

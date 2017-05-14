@@ -30,7 +30,7 @@
         'Title' => 'Titel',
         'Date' => 'Datum',
         'Yes' => 'Ja',
-        'No' => 'No',
+        'No' => 'Nej',
         'No records found' => 'Inga förfrågningar hittades',
         'Phone' => 'Telefon',
         'Name' => 'Namn',
@@ -38,4 +38,12 @@
         'Subject' => 'Ämne',
         'Edit text' => 'Redigera text',
         'Create text' => 'Skapa ny text',
+        'Invoice' => 'Faktura',
+        'Applies to' => 'Gäller',
+        'Create Invoice' => 'Ny faktura',
+        'Delete Invoice' => 'Radera faktura',
+        'Paid' => 'Betald',
+        'Not paid' => 'Ej betald',
+        'Company' => 'Företag',
+
 ];

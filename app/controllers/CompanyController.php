@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\InvoiceSearch;
 use Yii;
 use app\models\Company;
 use app\models\CompanySearch;
@@ -79,10 +80,17 @@ class CompanyController extends Controller
         $searchModel = new UserSearch($this->finder);
         $searchModel->company_id = $id;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $invoiceSearchModel = new InvoiceSearch();
+        $invoiceSearchModel->company_id = $id;
+        $invoiceDataProvider = $invoiceSearchModel->search(Yii::$app->request->queryParams);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
             'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel
+            'searchModel' => $searchModel,
+            'invoiceDataProvider' => $invoiceDataProvider,
+            'invoiceSearchModel' => $invoiceSearchModel
         ]);
     }
 

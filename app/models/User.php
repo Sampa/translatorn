@@ -30,7 +30,9 @@ class User extends BaseUser
         $rules = parent::rules();
         // add some rules
         $rules['company_idRequired'] = ['company_id', 'required'];
+        $rules['is_bossSafe'] = ['is_boss', 'safe'];
         $rules['company_idLength']   = ['company_id', 'string', 'max' => 10];
+
 
         return $rules;
     }
@@ -47,5 +49,22 @@ class User extends BaseUser
     public function getCompany(){
       return self::hasOne(Company::className(),['id' => 'company_id']);
     }
+
+    public function getIsBossAsText(){
+        if($this->is_boss == 1)
+            return Yii::t('app',"Yes");
+
+        return Yii::t('app',"No");
+    }
+
+    public function getIsBossList(){
+        $statusArray = [
+            0 => Yii::t('app', 'No'),
+            1 => Yii::t('app', 'Yes'),
+        ];
+
+        return $statusArray;
+    }
+
 }
 
