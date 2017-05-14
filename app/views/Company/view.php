@@ -11,8 +11,19 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('company', 'Companies'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="company-view row">
-    <div class="col-md-4"> <!-- DETALJER -->
+<div class="company-view"> <!-- row -->
+
+    <h3>Fakturor</h3>
+    <?php Pjax::begin(); ?>
+    <?= $this->render('/invoice/index',[
+        'searchModel' => $invoiceSearchModel,
+        'dataProvider' => $invoiceDataProvider,
+        'inCompanyView' => true,
+    ] );?>
+    <?php Pjax::end(); ?>
+
+
+    <!--    <div class="col-md-5"> <!-- DETALJER -->
         <h3>Detaljer</h3>
         <?php if(Yii::$app->user->can('manager')): ?>
         <p>
@@ -44,16 +55,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'extra_3:ntext',
             ],
         ]) ?>
-    </div> <!-- SLUT PÅ DETALJER -->
-    <div class="col-md-8">
-        <h3>Fakturor</h3>
-        <?php Pjax::begin(); ?>
-        <?= $this->render('/invoice/index',[
-            'searchModel' => $invoiceSearchModel,
-            'dataProvider' => $invoiceDataProvider,
-            'inCompanyView' => true,
-        ] );?>
-        <?php Pjax::end(); ?>
+<!--    </div> <!-- SLUT PÅ DETALJER -->
+<!--    <div class="col-md-7">-->
+
 
 
     <h3>Användare som är knutna till det här företaget</h3>
@@ -63,6 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'inCompanyView' => true,
     ]); ?>
-    </div>
+
+<!--    </div>-->
 
 </div>
