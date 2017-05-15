@@ -60,10 +60,10 @@ class InvoiceSearch extends Invoice
         $query->andFilterWhere([
             'id' => $this->id,
             'file' => $this->file,
-            'date' => $this->date,
             'company_id' => $this->company_id,
             'status' => $this->status,
         ]);
+        $query->andFilterWhere(['like','date',$this->date]);
 
         return $dataProvider;
     }

@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::end(); ?>
 
 
-    <!--    <div class="col-md-5"> <!-- DETALJER -->
+<!--    <div class="col-md-5"> <!-- DETALJER -->
         <h3>Detaljer</h3>
         <?php if(Yii::$app->user->can('manager')): ?>
         <p>

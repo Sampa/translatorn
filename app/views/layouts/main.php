@@ -24,17 +24,26 @@ use yii\easyii\modules\text\api\Text;
             <span style="font-weight:normal;"><?= Text::get('layout-top-phone') ?></span>
         </h2>
     </div>
-    <!-- Logout -->
-    <?php if( Yii::$app->user->can('customer') && !Yii::$app->user->can('manageSite')): ?>
-    <div id="logout" class="pull-right">
 
-        <?= Html::a(Html::tag('span','', ['class'=>'glyphicon glyphicon-log-out']) . ' ' .
+    <!-- Logout login -->
+    <div id="logout" class="pull-right">
+    <?php
+        if(Yii::$app->user->isGuest){
+            echo  Html::a(Html::tag('span','', ['class'=>'glyphicon glyphicon-log-out']) . ' ' .
+            Yii::t('app','Login') , ['//user/security/login'],['class' => 'btn btn-small','data-method'=>'post']);
+        }
+    ?>
+    <?php if( Yii::$app->user->can('customer') && !Yii::$app->user->can('manageSite')): ?>
+
+            <?= Html::a(Html::tag('span','', ['class'=>'glyphicon glyphicon-log-out']) . ' ' .
             Yii::t('app','Sign out') , ['//user/security/logout'],['class' => 'btn btn-small','data-method'=>'post']) ?>
+
         <?php
 //        echo Html::a(Html::tag('span','', ['class'=>'glyphicon glyphicon-user']) . ' ' .
 //            Yii::t('app','Fakturor') , ['//profile?id='.Yii::$app->user->id],['class' => 'btn btn-small','data-method'=>'post']) ?>
-    </div>
     <?php endif; ?>
+    </div>
+
 </div>
 <nav class="navbar navbar-default translatorn-menu col-md-12">
     <div class="container">
@@ -89,7 +98,7 @@ use yii\easyii\modules\text\api\Text;
                     'url' => ['/site/akut'],
                     'options' =>['class' => 'akut']
                 ],
-                ['label' => $labelLogin, 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest],
+                ['label' => $labelLogin, 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest && 1==2],
 
                 ['label' =>$labelBill, 'url' => ['/user/'.Yii::$app->user->id],
                         'visible' =>Yii::$app->user->can('customer')],

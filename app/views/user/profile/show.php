@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="greenbg">
     <div class="col-md-2 translatorn-page-summary translatorn-page-akut-summary" style="margin-left: 1px;">
-        <?php echo $profile->user->username;?>
         <h1><?= Text::get('profile-welcome-title') ?></h1>
 
         <p><?= Text::get('profile-welcome-desc') ?></p>
@@ -40,6 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <i class="glyphicon glyphicon-font text-muted"></i>
                 <?php echo $company->name; ?>
             </li>
+            <?php endif; ?>
+
+            <?php if (!empty($profile->user->username)): ?>
+                <li>
+                    <i class="glyphicon glyphicon-user text-muted"></i>
+                    <?php echo $profile->user->username; ?>
+                </li>
             <?php endif; ?>
 
             <?php if (!empty($profile->location)): ?>
@@ -70,6 +76,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php if (!empty($profile->bio)): ?>
             <p><?= Html::encode($profile->bio) ?></p>
         <?php endif; ?>
+
+        <!-- fakturor -->
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><?=Yii::t('app','Invoices') ?></div>
+
+            <!-- Table -->
+            <table class="table">
+                <?php foreach ($invoiceDataProvider->getModels() as $model): ?>
+                    <tr class="green"><td ><?=$model->fileLink?></td><td><?=$model->getFormatDate("j M");?></td></tr>
+                <?php endforeach;?>
+            </table>
+        </div>
 
     </div>
     <div class="container">

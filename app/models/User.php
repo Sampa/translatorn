@@ -66,5 +66,17 @@ class User extends BaseUser
         return $statusArray;
     }
 
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+
+        if ($insert) {
+            $r=new yii\rbac\DbManager;
+            $r->init();
+            $role = $r->getRole("customer");
+            $r->assign($role,$this->id);
+        }
+    }
+
 }
 

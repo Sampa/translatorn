@@ -2,37 +2,31 @@
 
 
 -todo:
-
--kollo om filtrering sker via datatyper
--fakturor filtrera på datum
--användare is_boss se fakturor
-
-
 -production : stäng av forceCopy i appAsset
 
 publika sidan:
-utseendet som det är nu, fast bara med formuläret "Akut tolk" och "inloggning"
+utseendet som det är nu, fast bara med formuläret "Akut tolk" och "inloggning" *check*
 
 kundens sida:
--skapa förfrågningar via formuläret "Boka tolk för avtalskunder"
+-skapa förfrågningar via formuläret "Boka tolk för avtalskunder" *check*
 
--lista fakturor och se status på dem, samt ladda ner pdferna
+-lista fakturor och se status på dem, samt ladda ner pdferna *chcek*
 
 admin för er anställda:
 skapa och lista kunder
--ladda upp och lista fakturor för respektive kund
--lista och läsa förfrågningar för avtalskunder
-lista och läsa förfrågningar från "Akut tolk"
+-ladda upp och lista fakturor för respektive kund*check*
+-lista och läsa förfrågningar för avtalskunder*chcek*
+lista och läsa förfrågningar från "Akut tolk"*chcek*
 
-en sak till på admin för anställda: ändra status på fakturor
+en sak till på admin för anställda: ändra status på fakturor*chcek*
 
 	
 Funktionalitet:
 Kunden:
--skapa bokningar via formuläret boka tolk för avtalskunder
--lista kostnadsräkningar med status (sina egna) och ladda hem pdf:er av kostnadsräkningarna OM dem är klara
--se bokningsnummer
--logga in och se vilken information som är kopplad till sig själv
+-skapa bokningar via formuläret boka tolk för avtalskunder *check*
+-lista kostnadsräkningar med status (sina egna) och ladda hem pdf:er av kostnadsräkningarna OM dem är klara *check*
+-se bokningsnummer *check*
+-logga in och se vilken information som är kopplad till sig själv *check*
 -Chefer kan det ovan men ser alla bokningar gjorda av kunder till sitt företag istället (med namnet på den som gjorde bokningen)
 
 -Admin för translator:

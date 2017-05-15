@@ -11,13 +11,12 @@
 
 namespace app\controllers\user;
 use dektrium\user\controllers\ProfileController as BaseProfileController;
-use dektrium\user\Finder;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\NotAcceptableHttpException;
 use yii\web\NotFoundHttpException;
 use app\models\OrdersSearch;
 use Yii;
+use app\models\InvoiceSearch;
 
 /**
  * ProfileController shows users profiles.
@@ -85,11 +84,17 @@ class ProfileController extends BaseProfileController
         }else {
             $dataProvider = $orderSearch->search(Yii::$app->request->queryParams);
         }
+
+        $invoiceSearchModel = new InvoiceSearch();
+        $invoiceSearchModel->company_id = 1;
+        $invoiceDataProvider = $invoiceSearchModel->search(Yii::$app->request->queryParams);
         return $this->render('show', [
             'profile' => $profile,
             'dataProvider' => $dataProvider,
             'searchModel' => $orderSearch,
             'companyInfo' => '',
+            'invoiceSearchModel' => $invoiceSearchModel,
+            'invoiceDataProvider' => $invoiceDataProvider
         ]);
     }
 
