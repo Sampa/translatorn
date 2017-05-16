@@ -7,128 +7,137 @@ use yii\easyii\modules\text\api\Text;
 
 ?>
 <?php $this->beginContent('@app/views/layouts/base.php'); ?>
-<div id="translatorn-head" class="row">
-    <div class="col-md-4 col-md-push-2 logo">
-        <img src="/image/logo_black.png" width="58" height="58">
-<!--        <img src="http://translatorn.se/____impro/1/onewebmedia/LOGA3.png?etag=W%2F%22d893-590d2d5b%22&amp;sourceContentType=image%2Fpng&amp;ignoreAspectRatio&amp;resize=58%2B58">-->
-        <a href="<?=Yii::$app->homeUrl?>" title="Hem">
-            <h1><span class="" style="font-size:32px;"><?= Text::get('layout-top-name') ?></span></h1>
-        </a>
 
-        <p><span style="font-size:13px;">I VÄST</span></p>
-    </div>
-    <!-- phone number and img -->
-    <div class="col-md-4 col-md-push-4 phone" style="">
-        <img data-scalestrategy="crop" width="15" height="38" src="//translatorn.se/onewebstatic/3503fff449.png" srcset="//translatorn.se/onewebstatic/3503fff449.png 1x, //translatorn.se/onewebstatic/81b2a0a65a.png 2x, //translatorn.se/onewebstatic/cf204352a6.png 3x, //translatorn.se/onewebstatic/6da69c16ae.png 4x">
-        <h2>
-            <span style="font-weight:normal;"><?= Text::get('layout-top-phone') ?></span>
-        </h2>
-    </div>
+<div id="wrapper">
+    <div class="col-xs-12">
+        <main>
+            <div id="translatorn-head" class="col-md-push-2">
+                <div class="col-xs-8 col-xs-push-0 logo" >
+                    <img src="/image/logo_black.png" width="58" height="58">
+                    <!--        <img src="http://translatorn.se/____impro/1/onewebmedia/LOGA3.png?etag=W%2F%22d893-590d2d5b%22&amp;sourceContentType=image%2Fpng&amp;ignoreAspectRatio&amp;resize=58%2B58">-->
+                    <a href="<?=Yii::$app->homeUrl?>" title="Hem">
+                        <h1><span class="" style="font-size:32px;"><?= Text::get('layout-top-name') ?></span></h1>
+                    </a>
 
-    <!-- Logout login -->
-    <div id="logout" class="pull-right">
-    <?php
-        if(Yii::$app->user->isGuest){
-            echo  Html::a(Html::tag('span','', ['class'=>'glyphicon glyphicon-log-out']) . ' ' .
-            Yii::t('app','Login') , ['//user/security/login'],['class' => 'btn btn-small','data-method'=>'post']);
-        }
-    ?>
-    <?php if( Yii::$app->user->can('customer') && !Yii::$app->user->can('manageSite')): ?>
+                    <p><span style="font-size:13px;">I VÄST</span></p>
+                </div>
+                <!-- phone number and img -->
 
-            <?= Html::a(Html::tag('span','', ['class'=>'glyphicon glyphicon-log-out']) . ' ' .
-            Yii::t('app','Sign out') , ['//user/security/logout'],['class' => 'btn btn-small','data-method'=>'post']) ?>
+                <div class="phone">
+                    <img data-scalestrategy="crop" width="15" height="38" src="//translatorn.se/onewebstatic/3503fff449.png" srcset="//translatorn.se/onewebstatic/3503fff449.png 1x, //translatorn.se/onewebstatic/81b2a0a65a.png 2x, //translatorn.se/onewebstatic/cf204352a6.png 3x, //translatorn.se/onewebstatic/6da69c16ae.png 4x">
+                    <h2>
+                        <span style="font-weight:normal;"><?= Text::get('layout-top-phone') ?></span>
+                    </h2>
+                </div>
+            </div>
+        </main>
 
-        <?php
-//        echo Html::a(Html::tag('span','', ['class'=>'glyphicon glyphicon-user']) . ' ' .
-//            Yii::t('app','Fakturor') , ['//profile?id='.Yii::$app->user->id],['class' => 'btn btn-small','data-method'=>'post']) ?>
-    <?php endif; ?>
-    </div>
+        <nav class="navbar navbar-default translatorn-menu row">
+                <div id="navbar-menu" class="col-xs-12 col-md-push-2">
+                    <?php
+                    $homeImg = Html::tag('div', '', ['class' => 'home_icon']);
+                    $bookImg = Html::tag('div','',['class' => 'book_icon']);
+                    $akutImg = Html::tag('div', '', ['class' => 'akut_icon']);
+                    $loginImg = Html::tag('div', '', ['class' => 'login_icon']);
+                    $jobImg = Html::tag('div', '', ['class' => 'job_icon']);
 
-</div>
-<nav class="navbar navbar-default translatorn-menu col-md-12">
-    <div class="container">
-        <div class="col-md-11 col-md-push-1" id="navbar-menu">
-            <?php
-                $bookImg = Html::tag('div','',['class' => 'book_icon']);
-                $akutImg = Html::tag('div', '', ['class' => 'akut_icon']);
-                $loginImg = '<img data-scalestrategy="crop" height="144" src="//translatorn.se/onewebstatic/aab87fd3f0.png" srcset="//translatorn.se/onewebstatic/aab87fd3f0.png 1x, //translatorn.se/onewebstatic/01c1532617.png 2x, //translatorn.se/onewebstatic/01c1532617.png 3x, //translatorn.se/onewebstatic/01c1532617.png 4x" style="display:block;">';
-                $jobImg = '<img data-scalestrategy="crop"  height="144" src="//translatorn.se/onewebstatic/f984bb86a1.png" srcset="//translatorn.se/onewebstatic/f984bb86a1.png 1x, //translatorn.se/onewebstatic/cb8db6ac75.png 2x, //translatorn.se/onewebstatic/cb8db6ac75.png 3x, //translatorn.se/onewebstatic/cb8db6ac75.png 4x" style="display:block;">';
+                    $labelBook = $bookImg.
+                        Html::tag('h4', yii::t('app','Book translator'), ['class' => 'menu-text']) .
+                        Html::tag('span', yii::t('app',''), ['class' => 'menu-sub-text']);
 
-                $labelBook = $bookImg.
-                    Html::tag('h4', yii::t('app','Book translator'), ['class' => 'menu-text']) .
-                    Html::tag('span', yii::t('app','For customers'), ['class' => 'menu-sub-text']);
+                    $labelAkut = $akutImg. Html::tag('h4', yii::t('app','Acute translator'), ['class' => 'menu-text']);
 
-                $labelAkut = $akutImg.
-                    Html::tag('h4', yii::t('app','Acute translator'), ['class' => 'menu-text']);
+                    $labelLogin = $loginImg.
+                        Html::tag('h4', yii::t('app','Login'), ['class' => 'menu-text']);
 
-                $labelLogin = $loginImg.
-                    Html::tag('h4', yii::t('app','Login'), ['class' => 'menu-text']);
+                    $labelJob = $jobImg.
+                        Html::tag('h4', yii::t('app','Looking for a job?'), ['class' => 'menu-text']);
 
-                $labelJob = $jobImg.
-                    Html::tag('h4', yii::t('app','Looking for a job?'), ['class' => 'menu-text']);
+                    $labelEditBook = $bookImg.
+                        Html::tag('h4', yii::t('app','Edit book page'), ['class' => 'menu-text']);
 
-                $labelEditBook = $jobImg.
-                    Html::tag('h4', yii::t('app','Edit book page'), ['class' => 'menu-text']);
+                    $labelLogout = $loginImg;
+                    Yii::$app->user->isGuest ? '' : $labelLogout .= Html::tag('h4', 'Sign out' , ['class'=> 'menu-text'] );
 
-                $labelLogout = $loginImg;
-                Yii::$app->user->isGuest ? '' : $labelLogout .= Html::tag('h4', 'Sign out' , ['class'=> 'menu-text'] );
+                    $labelBill = $loginImg.
+                        Html::tag('h4', 'Konto' , ['class'=> 'menu-text'] );
 
-                $labelBill = $loginImg. Html::tag('h4', 'Konto  ' , ['class'=> 'menu-text'] );
+                    $labelCompany = $loginImg.
+                        Html::tag('h4', 'Företag' , ['class'=> 'menu-text'] );
+                    //hem
 
-                $labelCompany = $loginImg. Html::tag('h4', 'Företag' , ['class'=> 'menu-text'] );
-            //hem
-            $labelHome = $bookImg.
-                    Html::tag('h4', yii::t('app','Information'),['class' => 'menu-text']);
+                    $labelHome = $homeImg.
+                        Html::tag('h4', yii::t('app','Om oss'),['class' => 'menu-text']);
 
-            $items = [
-                [
-                    'label' => $labelHome,
-                    'url' => ['/site/index'],
-                    'visible' => Yii::$app->user->isGuest || Yii::$app->user->can('manager'),
-                    'options' => ['class' => 'book']
-                ],
-                [
-                    'label' => $labelBook,
-                    'url' => ['/orders/create'],
-                    'visible' => Yii::$app->user->can('customer'),
-                    'options' =>['class' => 'book']
-                ],
-                [
-                    'label' => $labelAkut,
-                    'url' => ['/site/akut'],
-                    'options' =>['class' => 'akut']
-                ],
-                ['label' => $labelLogin, 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest && 1==2],
+                    $items = [
+                        [
+                            'label' => $labelHome,
+                            'url' => ['/site/index'],
+                            'visible' => Yii::$app->user->isGuest || Yii::$app->user->can('manager'),
+                            'options' => ['class' => 'home']
+                        ],
+                        [
+                            'label' => $labelBook,
+                            'url' => ['/orders/create'],
+                            'visible' => Yii::$app->user->can('customer'),
+                            'options' =>['class' => 'book']
+                        ],
+                        [
+                            'label' => $labelAkut,
+                            'url' => ['/site/akut'],
+                            'options' =>['class' => 'akut'],
+                            'visible' => Yii::$app->user->isGuest
+                        ],
+                        [
+                            'label' => $labelLogin,
+                            'url' => ['/user/security/login'],
+                            'visible' => Yii::$app->user->isGuest,
+                            'options' =>['class' => 'login']
+                        ],
 
-                ['label' =>$labelBill, 'url' => ['/user/'.Yii::$app->user->id],
-                        'visible' =>Yii::$app->user->can('customer')],
+                        [
+                            'label' =>$labelBill,
+                            'url' => ['/user/'.Yii::$app->user->id],
+                            'visible' =>Yii::$app->user->can('customer'),
+                            'options' =>['class' => 'login']
+                        ],
 
-                ['label' =>$labelCompany, 'url' => ['/company/'],
-                        'visible' =>Yii::$app->user->can('manager')],
+                        [
+                            'label' =>$labelCompany,
+                            'url' => ['/company/'],
+                            'visible' =>Yii::$app->user->can('manager'),
+                            'options' =>['class' => 'login']
+                        ],
 
-                ['label' => $labelJob, 'url' => ['/job/search'],
-                        'visible' => false],
+                        [
+                            'label' => $labelEditBook,
+                            'url' => ['/orders/create'],
+                            'visible' => Yii::$app->user->can('manager'),
+                            'options' =>['class' => 'book']
+                        ],
 
-                ['label' => $labelEditBook, 'url' => ['/orders/create'],
-                    'visible' => false]//Yii::$app->user->can('manager')]
-            ];
-//                ['label' => $labelBook, 'url' => ['/order/create']]
-            echo Menu::widget([
-                'options' => ['class' => 'nav navbar-nav'],
-                'encodeLabels' => false,
-                'items' => $items,
-            ]); ?>
-        </div>
-    </div>
-</nav>
-<div id="wrapper" class="container">
-    <main>
-        <div class="container row">
-            <div class="col-md-10 col-md-push-1 translatorn-page">
+                        [
+                            'label' => $labelJob,
+                            'url' => ['/site/job'],
+                            'visible' => !Yii::$app->user->can('customer'),
+                            'options' =>['class' => 'job']
+                        ],
+
+
+                    ];
+                    //                ['label' => $labelBook, 'url' => ['/order/create']]
+                    echo Menu::widget([
+                        'options' => ['class' => 'nav navbar-nav'],
+                        'encodeLabels' => false,
+                        'items' => $items,
+                    ]); ?>
+                </div>
+        </nav>
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-md-push-2" style="max-width:965px;">
                 <?= $content ?>
             </div>
         </div>
-        <div class="push"></div>
-    </main>
+    </div>
 </div>
 <?php $this->endContent(); ?>

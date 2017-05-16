@@ -31,6 +31,7 @@
     linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);
 }
 
+
 #translatorn-head > .logo > p {
     margin-left: 68px;
     top: -5px;
@@ -54,6 +55,9 @@
 #translatorn-head > .phone {
     min-height: 71px;
     margin-top: 15px;
+    width: 300px;
+    float:left;
+    margin-left: 250px;
 }
 
 #translatorn-head > .phone > h2 {
@@ -67,57 +71,79 @@
     margin-right: 10px;
 }
 
-.translatorn-menu {
-    background: #EBEDEF;
-    max-height: 220px;
-}
-
-#navbar-menu > ul {
-    height: 220px;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin: 0 auto;
-
-}
-
 #navbar-menu > ul > li.book > a > .book_icon{
-    background: url('/image/book_white.png');
-    min-height: 144px;
-    width: 159px;
-    margin: 0 auto;
+    background: url('/image/book_white.png') no-repeat;
 }
 #navbar-menu > ul > li.active > a > .book_icon{
-    background: url('/image/book_green.png');
-    min-height: 144px;
-    width: 159px;
-    margin: 0 auto;
+    background: url('/image/book_green.png') no-repeat;
 }
 
 #navbar-menu > ul > li.akut > a > .akut_icon{
-    background: url('/image/akut_grey.png');
-    min-height: 144px;
-    width: 159px;
-    margin: 0 auto;
-    background-size: cover;
+    background: url('/image/book_white.png') no-repeat;
 }
 #navbar-menu > ul > li.active > a > .akut_icon{
-    background: url('/image/akut_white.png');
-    max-height: 144px;
-    width: 159px;
-    margin: 0 auto;
-    background-size: cover;
+    background: url('/image/book_green.png') no-repeat;
+}
+
+#navbar-menu > ul > li.login > a > .login_icon{
+     background: url('/image/login_white.png') no-repeat;
+ }
+#navbar-menu > ul > li.active > a > .login_icon{
+    background: url('/image/login_green.png') no-repeat;
+}
+
+#navbar-menu > ul > li.home > a > .home_icon{
+    background: url('/image/home_white.png') no-repeat;
+}
+#navbar-menu > ul > li.active > a > .home_icon{
+    background: url('/image/home_green.png') no-repeat;
+}
+#navbar-menu > ul > li.job > a > .job_icon{
+    background: url('/image/job_white.png') no-repeat;
+}
+#navbar-menu > ul > li.active > a > .job_icon{
+    background: url('/image/home_green.png') no-repeat;
 }
 
 #navbar-menu > ul > li > a > img{
     margin: 0 auto;
 }
-#navbar-menu > ul > li > a {
-    height: 220px;
-    top: -1px;
+#navbar-menu > ul > li {
+    height: 109px;
+    top: 0px;
     width: 234px;
     text-align: center;
 }
+#navbar-menu > ul > li > a {
+    height: 143px;
+    top: -1px;
+    width: 234px;
+    text-align: center;
+    /*padding-top: 5px;*/
+}
+.translatorn-menu {
+    background: #EBEDEF;
+    max-height: 200px;
+}
 
+#navbar-menu > ul {
+    height: 140px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0 auto;
+
+}
+/* white */
+#navbar-menu > ul > li.akut > a > .akut_icon,
+#navbar-menu > ul > li.book > a > .book_icon,
+#navbar-menu > ul > li.login > a > .login_icon,
+#navbar-menu > ul > li.home > a > .home_icon,
+#navbar-menu > ul > li.job > a > .job_icon
+{
+    height: 109px;
+    width: 124px;
+    margin: 0 auto;
+}
 #navbar-menu > ul > li.active > a {
     background: #5FCB76;
 }
@@ -131,19 +157,26 @@
 #navbar-menu .menu-sub-text{
     font-size: 12px;
 }
+h4.menu-text{
+    padding-top:0;
+    margin-top:0;
+    margin-bottom:0;
+    position: relative;
+    top:-5px;
+}
 #navbar-menu .menu-sub-text, #navbar-menu .menu-text{
     color: rgb(164,165,167);
     font-weight: bold;
     font-family: Archivo Narrow,One Open Sans,Helvetica Neue,Helvetica,sans-serif;
     text-transform: uppercase;
 }
-.translator-page-index-footer h1{
+.translator-page-index-footer >div >div>h1{
     font-weight: 700;
-    font-size: 30px;
+    font-size: 24px;
     color: rgb(129,129,129);
 }
 .translator-page-index-footer > div{
-    width: 941px;
+    /*width: 941px;*/
     background: #FFFFFF;
     height:116px;
     font-family: Archivo Narrow,One Open Sans,Helvetica Neue,Helvetica,sans-serif;
@@ -152,11 +185,11 @@
     position: relative;
     top:-20px;
     padding: 0;
-    width: 941px;
-    margin-left: 15px;
+    /*width: 941px;*/
+    /*margin-left: 0px;*/
 }
 .translatorn-content-wrapper{
-    width: 941px;
+    /*max-width: 941px;*/
 }
 .translatorn-page-content{
 }
@@ -165,6 +198,22 @@
     background: #5FCB76;
     color: #fff;
 }
+.translatorn-page-akut-summary {
+    margin-left: 234px;
+}
+@media screen and (min-width: 768px) {
+
+    .translatorn-page-job-summary {
+        margin-left: 118px;
+        width: 232px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .translatorn-page-akut-summary {
+        margin-left: 0px;
+    }
+}
+
 .translatorn-index-side > h1{
     color: #5FCB76;
 }
@@ -180,9 +229,7 @@
 .greenbg{
     background: #4FA561
 }
-.translatorn-page-akut-summary{
-    margin-left: -3px;
-}
+
 
 .translator-page-index-contact-info h1{
     color: #5FCB76;
@@ -198,8 +245,11 @@
     background: #fff;
 }
 .translator-page-index-about-us{
+    clear:both;
     background: #5FCB76;
     color: #fff;
+    position: relative;
+    top: -15px;
 }
 .translatorn-page-index-contactAbout{
     position: relative;
@@ -223,10 +273,12 @@
     background-attachment: scroll;
     z-index: 1;
     position: relative;
-    max-width: 941px;
+    /*max-width: 941px;*/
 
 }
-
+#translatorn-orders-content{
+    min-height:400px;
+}
 #translatorn-index-content{}
 #translatorn-orders-content{
 }
@@ -236,8 +288,11 @@
 }
 .orders-form label{
     color: #fff;
+
     font-family: Archivo Narrow;
     font-size: 14px;
+}
+.update-order label{
 }
 #orders-type label{
     /*width: 100%;*/
@@ -285,6 +340,6 @@
     color: #ff9999;
 }
 
-#orders-type label{
+.update-order #orders-type label{
     color: green;
 }

@@ -35,4 +35,8 @@ class SiteController extends Controller
         }
         return $this->render('akut');
     }
+
+    public function actionJob(){
+        return $this->render('job');
+    }
 }

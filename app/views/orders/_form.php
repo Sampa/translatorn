@@ -21,21 +21,21 @@ $company = $user->company;
         <?= $form->field($model, 'company_name')->textInput([
             'maxlength' => true,
             'placeholder' => 'Företagsnamn *',
-            'value' => $company->name,
+            'value' => (isset($company->name)) ? $company->name : '',
         ])->label(false) ?>
 
 <!--Företags email -->
         <?= $form->field($model, 'email')->textInput([
             'maxlength' => true,
             'placeholder' => 'Email *',
-            'value' => $company->email,
+            'value' => (isset($company->email)) ?? '',
         ])->label(false) ?>
 
 <!--       Företags telefon-->
         <?= $form->field($model, 'phone')->textInput([
             'maxlength' => true,
             'placeholder' => 'Telefon *',
-            'value' => $company->phone,
+            'value' => (isset($company->phone)) ?? '',
         ])->label(false) ?>
 <!--Språk-->
         <?= $form->field($model, 'language')->textInput([
@@ -103,7 +103,7 @@ $company = $user->company;
         <?= $form->field($model, 'org_nr')->textInput([
             'maxlength' => true,
             'placeholder' => 'Organisationsnummer *',
-            'value' => $company->org_nr,
+            'value' => (isset($company->org_nr)) ?? '',
         ])->label(false) ?>
 
 <!--Användarens användarnamn-->

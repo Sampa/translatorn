@@ -10,16 +10,17 @@ body{
 }
 #wrapper {
     min-height: 100%;
-    height: auto !important;
     height: 100%;
-    margin: 0 auto -52px; /* the bottom margin is the negative value of the footer's height */
+    height: auto !important;
+    margin: 0 auto; /* the bottom margin is the negative value of the footer's height */
+    min-width: 100%;
 }
 #wrapper nav {
     margin-bottom: 0;
     border-radius: 0;
 }
 footer, .push {
-    height: 52px; /* .push must be the same height as .footer */
+    /*height: 52px; !* .push must be the same height as .footer *!*/
 }
 .footer-content {
     border: 1px solid #e7e7e7;

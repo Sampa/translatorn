@@ -3,7 +3,7 @@
 
 -todo:
 -production : stäng av forceCopy i appAsset
-
+-bilder login länk
 publika sidan:
 utseendet som det är nu, fast bara med formuläret "Akut tolk" och "inloggning" *check*
 

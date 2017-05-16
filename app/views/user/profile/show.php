@@ -26,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
      $company = $profile->user->company;
 ?>
 
-<div class="greenbg">
-    <div class="col-md-2 translatorn-page-summary translatorn-page-akut-summary" style="margin-left: 1px;">
+<div class="greenbg row">
+    <div class="col-xs-2 col-md-2 translatorn-page-summary translatorn-page-akut-summary" style="margin-left: 1px;">
         <h1><?= Text::get('profile-welcome-title') ?></h1>
 
         <p><?= Text::get('profile-welcome-desc') ?></p>
@@ -43,8 +43,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php if (!empty($profile->user->username)): ?>
                 <li>
-                    <i class="glyphicon glyphicon-user text-muted"></i>
-                    <?php echo $profile->user->username; ?>
+                    <?php
+                        if(Yii::$app->user->id == $profile->user->id){
+                            echo '<i class="glyphicon glyphicon-log-out text-muted"></i> ';
+                            echo Html::a(Yii::t('app','Sign out') , ['//user/security/logout'],['class' => '','data-method'=>'post']);
+                        }else {
+                            echo '<i class="glyphicon glyphicon-user text-muted"></i>';
+                            echo $profile->user->username;
+                        }
+                    ?>
                 </li>
             <?php endif; ?>
 
@@ -62,7 +69,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php if (!empty($profile->public_email)): ?>
                 <li>
-                    <i class="glyphicon glyphicon-envelope text-muted"></i> <?= Html::a(Html::encode($profile->public_email), 'mailto:' . Html::encode($profile->public_email)) ?>
+                    <i class="glyphicon glyphicon-envelope text-muted"></i>
+                    <?= Html::a(Html::encode($profile->public_email), 'mailto:' . Html::encode($profile->public_email)) ?>
                 </li>
             <?php endif; ?>
 
@@ -92,10 +100,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </div>
     <div class="container">
-        <div class="col-md-7 " style="color:#fff; min-height: 400px; height: 100%; margin-left:10px;">
+        <div class="col-xs-9 col-md-7" style="color:#fff; min-height: 400px; height: 100%; margin-left:10px;">
             <h2><?= Text::get('profile-content-title') ?></h2>
             <p><?= Text::get('profile-content-desc') ?></p>
-            <div id="user-translatorn-bills" class="container well green col-md-12" style="background-color: rgba(255,255,2550,1)">
+            <div id="user-translatorn-bills" class="container well green col-xs-12 col-md-12" style="background-color: rgba(255,255,2550,1)">
 
                 <?php if(isset($companyInfo)){
                     echo $companyInfo;
@@ -155,34 +163,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]); ?>
                 <?php Pjax::end(); ?>
 
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="row">
-                <div class="col-sm-6 col-md-8">
-                    <?php /*= DetailView::widget([
-                        'model' => $company,
-                        'attributes' => [
-//            'id',
-                            'client_ref',
-                            'name',
-                            'org_nr',
-                            'street',
-                            'zip',
-//            'country',
-                            'email:email',
-                            'phone',
-                            'city',
-                            'extra_1:ntext',
-                            'extra_2:ntext',
-                            'extra_3:ntext',
-                        ],
-                    ]) */?>
-                </div>
             </div>
         </div>
     </div>
