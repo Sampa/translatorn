@@ -128,6 +128,7 @@ $config = [
                 'orders/update/<id:\d+>' => 'orders/update',
                 'company/view/<id:\d+>' => 'company/view',
                 'company/update/<id:\d+>' => 'company/update',
+                'admin/page/a/edit/<id:\d+>' => 'admin/sida/a/edit',
 //                'profile/<id\+>' => 'user/profile/show',
                 'boka' => 'orders/create',
                 'order-admin' => 'orders/index',
