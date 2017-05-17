@@ -78,10 +78,10 @@ class Orders extends \yii\db\ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if (isset($this->files[0])) {
-                $this->bill_sent = true;
+                $this->bill_sent = 1;
                 $this->bill_sent_date = new Expression('NOW()');
             }else{
-                $this->bill_sent = false;
+                $this->bill_sent = 0;
             }
             return true;
         } else {
@@ -96,8 +96,8 @@ class Orders extends \yii\db\ActiveRecord
         return [
             [['org_nr', 'email', 'time_end', 'phone', 'made_by_email','made_by', 'language', 'type', 'date','time_start'], 'required'],
             [['language', 'location'], 'string', 'max' => 55],
-            [['bill_sent', 'bill_paid', 'bill_sent_date', 'bill_paid_date', 'created_date', 'user_id', 'type'], 'integer'],
-            [['time_end'], 'safe'],
+            [['bill_sent', 'bill_paid', 'bill_sent_date', 'bill_paid_date', 'user_id', 'type'], 'integer'],
+            [['time_end','created_date'], 'safe'],
             [['message'], 'string'],
             [['reference', 'made_by', 'bill_ref', 'other_type', 'phone', 'org_nr', 'made_by_email',
                 'bill_location', 'email', 'company_name'], 'string', 'max' => 255],
@@ -193,18 +193,11 @@ class Orders extends \yii\db\ActiveRecord
 
     public function getLatest($userid,$limit){
         $query = new Query;
-// compose the query
-//        $query->select('id, bill_sent')
-//            ->from('orders')
-//            ->where('user_id' => $userid)
-//            ->limit(10);
-// build and execute the query
-//        $rows = $query->all();
-// alternatively, you can c
         $dataProvider = new ActiveDataProvider([
-            'query' => Orders::find()->users()->orderBy(['date' => SORT_DESC])
+            'query' => Orders::find()->users()->orderBy(['date' => SORT_DESC])->limit(10),
+            'pagination' => false,
         ]);
-        return $dataProvider;
+        return $dataProvider->getModels();
     }
 
     public function getBillSent(){

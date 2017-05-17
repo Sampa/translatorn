@@ -2,14 +2,14 @@
 use yii\easyii\modules\page\api\Page;
 use yii\easyii\modules\text\api\Text;
 use yii\helpers\Html;
-use yii\easyii\modules\feedback\api\Feedback;
+use app\modules\job\api\Feedback;
 
 $page = Page::get('page-akut');
 
 $this->title = $page->seo('title', 'Söker du jobb?');
 ?>
 
-<div class="greenbg">
+<div class="greenbg translatorn-job-page">
     <div class="container">
         <div class="col-xs-5 col-xs-push-1 white">
             <h3><?= Text::get('job-form-title') ?></h3>

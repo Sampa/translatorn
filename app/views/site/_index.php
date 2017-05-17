@@ -14,9 +14,9 @@ use yii\easyii\modules\feedback\api\Feedback;
             <img src="/image/247.png">
         </div>
     <!-- ABOUT -->
-        <div class="translator-page-index-about-us col-xs-6 row">
-            <h1><?= Text::get('index-about-title');?></h1>
-            <p><?= Text::get('index-about-text');?></p>
-        </div>
+<!--        <div class="translator-page-index-about-us col-xs-6 row">-->
+<!--            <h1>--><?//= Text::get('index-about-title');?><!--</h1>-->
+<!--            <p>--><?//= Text::get('index-about-text');?><!--</p>-->
+<!--        </div>-->
     </div>
 </div>

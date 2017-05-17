@@ -5,9 +5,9 @@ use yii\helpers\Html;
 use app\modules\akut\api\Akut;
 
 
-$page = Page::get('page-akut');
+//$page = Page::get('page-akut');
 
-$this->title = $page->seo('title', $page->model->title);
+$this->title = "Akut förfrågan"; //$page->seo('title', $page->model->title);
 ?>
 <div class="greenbg">
     <div class="row">

@@ -20,7 +20,8 @@
         "codeception/codeception": "*",
         "nemmo/yii2-attachments": "~1.0.0",
         "kartik-v/yii2-widget-datepicker": "@dev",
-        "kartik-v/yii2-widget-timepicker": "*"
+        "kartik-v/yii2-widget-timepicker": "*",
+        "skeeks/yii2-assets-auto-compress": "*"
     },
     "require-dev": {
         "developeruz/easyii-user-module": "dev-master",
@@ -34,6 +35,12 @@
             "yii\\composer\\Installer::postCreateProject"
         ]
     },
+    "config": {
+        "fxp-asset.installer-paths":{
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {
             "generateCookieValidationKey": [
@@ -41,8 +48,7 @@
             ]
         },
         "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
+
         },
 	    "writable": [
             "assets",

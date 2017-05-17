@@ -61,7 +61,7 @@ class Akut extends \yii\easyii\components\API
 
         if($settings['enableCaptcha']) echo $form->field($model, 'reCaptcha')->widget(ReCaptcha::className())->label(false);
 
-        echo Html::submitButton(Yii::t('app', 'Send'), ['class' => 'btn btn-primary']);
+        echo Html::submitButton(Yii::t('app', 'Skicka förfrågan'), ['class' => 'btn btn-success']);
         ActiveForm::end();
 
         return ob_get_clean();

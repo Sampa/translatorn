@@ -7,6 +7,7 @@ use app\models\Orders;
 use app\models\OrdersSearch;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\easyii\models\Setting;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -97,22 +98,21 @@ class OrdersController extends Controller
         $this->layout = 'main';
         $model = new Orders();
         $ordersView = null;
-        if ($model->load(Yii::$app->request->post())) {
-            $model->bill_ref = rand(1,9) . rand(1,9) . rand(1,9) .' '. $model->date. ' ' . $model->language;
+        $count = Setting::get('BookingRefCounter');
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->bill_ref = $count+$model->id .' '. $model->date. ' ' . $model->language;
             if( $model->save() ) {
                 $ordersView = $this->renderPartial('customerBokaView', [
                     'model' => $model,
                 ]);
-//               return $this->redirect(['view', 'id' => $model->id,'new' => true]);
             } else{
                 return var_dump($model->getErrors()) . Yii::t('orders', 'Could not save order');
             }
         }
-
         $dataProvider = $model->getLatest(Yii::$app->user->id,5); //limit not working and this is monthly
         return $this->render('create', [
             'model' => $model,
-            'latest' => $dataProvider->getModels(),
+            'latest' => $dataProvider,
             'ordersView' =>$ordersView
         ]);
 

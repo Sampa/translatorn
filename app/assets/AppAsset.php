@@ -6,7 +6,7 @@ class AppAsset extends \yii\web\AssetBundle
     public function init()
     {
         parent::init();
-        $this->publishOptions['forceCopy'] = true;
+        $this->publishOptions['forceCopy'] = false;
     }
     public $sourcePath = '@app/media';
     public $css = [

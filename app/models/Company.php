@@ -38,9 +38,10 @@ class Company extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['client_ref', 'name', 'org_nr', 'street', 'zip', 'email', 'phone', 'city', 'extra_1', 'extra_2', 'extra_3'], 'required'],
+            [['name'], 'required'],
+            [[ 'org_nr', 'street', 'email', 'city'], 'safe'],
             [['zip', 'phone'], 'integer'],
-            [['extra_1', 'extra_2', 'extra_3'], 'string'],
+            [['extra_1', 'extra_2', 'extra_3','client_ref'], 'string'],
             [['client_ref', 'name', 'org_nr', 'street', 'country', 'email', 'city'], 'string', 'max' => 255],
         ];
     }

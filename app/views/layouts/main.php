@@ -9,9 +9,8 @@ use yii\easyii\modules\text\api\Text;
 <?php $this->beginContent('@app/views/layouts/base.php'); ?>
 
 <div id="wrapper">
-    <div class="col-xs-12">
-        <main>
-            <div id="translatorn-head" class="col-md-push-2">
+        <main class="center">
+            <div id="translatorn-head" class="">
                 <div class="col-xs-8 col-xs-push-0 logo" >
                     <img src="/image/logo_black.png" width="58" height="58">
                     <!--        <img src="http://translatorn.se/____impro/1/onewebmedia/LOGA3.png?etag=W%2F%22d893-590d2d5b%22&amp;sourceContentType=image%2Fpng&amp;ignoreAspectRatio&amp;resize=58%2B58">-->
@@ -32,8 +31,8 @@ use yii\easyii\modules\text\api\Text;
             </div>
         </main>
 
-        <nav class="navbar navbar-default translatorn-menu row">
-                <div id="navbar-menu" class="col-xs-12 col-md-push-2">
+        <nav class="navbar navbar-default translatorn-menu" style="">
+                <div id="navbar-menu" class="center">
                     <?php
                     $homeImg = Html::tag('div', '', ['class' => 'home_icon']);
                     $bookImg = Html::tag('div','',['class' => 'book_icon']);
@@ -133,11 +132,10 @@ use yii\easyii\modules\text\api\Text;
                     ]); ?>
                 </div>
         </nav>
-        <div class="row">
-            <div class="col-xs-12 col-md-10 col-md-push-2" style="max-width:965px;">
+        <div class="row center">
+            <div class="" style=" width: 936px; margin: 0 auto;max-width:936px;">
                 <?= $content ?>
             </div>
         </div>
     </div>
-</div>
 <?php $this->endContent(); ?>

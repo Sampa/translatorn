@@ -8,7 +8,7 @@ $webroot = dirname($basePath);
 $config = [
     'id' => 'app',
     'basePath' => $basePath,
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','assetsAutoCompress'],
     'runtimePath' => $webroot . '/runtime',
     'vendorPath' => $webroot . '/vendor',
     // set target language to be Swedish
@@ -31,6 +31,9 @@ $config = [
         'akut' => [
             'class' => 'app\modules\akut\AkutModule',
         ],
+        'job' => [
+            'class' => 'app\modules\job\JobModule',
+        ],
         'controllerMap' => [
             'migrate' => [
                 'class' => 'yii\console\controllers\MigrateController',
@@ -43,6 +46,10 @@ $config = [
     ],
 
     'components' => [
+        'assetsAutoCompress' =>
+        [
+            'class' => '\skeeks\yii2\assetsAuto\AssetsAutoCompressComponent',
+        ],
         'view' => [
             'theme' => [
                 'pathMap' => [

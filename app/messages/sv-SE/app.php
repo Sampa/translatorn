@@ -45,6 +45,5 @@
         'Paid' => 'Betald',
         'Not paid' => 'Ej betald',
         'Company' => 'Företag',
-        'Invoices' => 'Fakturor'
-
+        'Invoices' => 'Fakturor',
 ];
