@@ -170,12 +170,13 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+
     ],
     'params' => $params,
 ];
 
 if (YII_ENV_DEV) {
+    $config['components']['db'] = require(__DIR__ . '/db.php');
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = 'yii\debug\Module';
@@ -184,6 +185,8 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = 'yii\gii\Module';
 
     $config['components']['db']['enableSchemaCache'] = false;
+}else{
+    $config['components']['db'] = require(__DIR__ . '/db_production.php');
 }
 
 $config = array_merge_recursive($config,
