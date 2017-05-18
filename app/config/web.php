@@ -2,8 +2,8 @@
 
 $params = require(__DIR__ . '/params.php');
 
-$basePath = dirname(__DIR__);
-$webroot = dirname($basePath);
+$basePath = '/customers/b/2/7/translatorn.nu//httpd.www/app';
+$webroot = '/customers/b/2/7/translatorn.nu//httpd.www/';
 
 $config = [
     'id' => 'app',
@@ -170,13 +170,26 @@ $config = [
                 ],
             ],
         ],
-
+//        'db' => require(__DIR__ . '/db.php'),
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=translatorn.nu.mysql;dbname=translatorn_nu',
+            'username' => 'translatorn_nu',
+            'password' => 'ky6vZsCw',
+            'charset' => 'utf8',
+            'tablePrefix' => '',
+            'enableSchemaCache' => true,
+            // Duration of schema cache.
+            'schemaCacheDuration' => 3600,
+            // Name of the cache component used to store schema information
+            'schemaCache' => 'cache',
+            ]
+//        'db_prod' => require(__DIR__ . '/db_production.php'),
     ],
     'params' => $params,
 ];
 
 if (YII_ENV_DEV) {
-    $config['components']['db'] = require(__DIR__ . '/db.php');
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = 'yii\debug\Module';
@@ -185,8 +198,6 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = 'yii\gii\Module';
 
     $config['components']['db']['enableSchemaCache'] = false;
-}else{
-    $config['components']['db'] = require(__DIR__ . '/db_production.php');
 }
 
 $config = array_merge_recursive($config,

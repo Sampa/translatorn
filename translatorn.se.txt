@@ -1,2 +1,0 @@
-checklist:
-php_intl aktiverat

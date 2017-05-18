@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?= $this->render('/admin/_menu'); ?>
 
-<?= $this->render('/admin/_gridView',['searchModel' => $searchModel, 'dataProvider' => $dataProvider]); ?>
+<?= $this->render('/admin/_gridview',['searchModel' => $searchModel, 'dataProvider' => $dataProvider]); ?>
 
 
 

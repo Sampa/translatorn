@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h3>Användare som är knutna till det här företaget</h3>
 
-    <?= $this->render('/user/admin/_gridView',[
+    <?= $this->render('/user/admin/_gridview',[
         'searchModel' => $searchModel,
         'dataProvider' => $dataProvider,
         'inCompanyView' => true,
