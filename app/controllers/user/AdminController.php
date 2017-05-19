@@ -17,7 +17,6 @@ class AdminController extends BaseAdminController
 {
     public $layout = '@vendor/noumo/easyii/views/layouts/main';
 
-//    public $layout
     /**
      * Lists all User models.
      *

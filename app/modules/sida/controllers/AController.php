@@ -14,8 +14,9 @@ class AController extends Controller
 
     public function actionIndex()
     {
+
         $data = new ActiveDataProvider([
-            'query' => Page::find()->where(['title' => 'index'])->orWhere(['title'=>'Akut tolk'])->desc()
+            'query' => Page::find()->where(['slug' => 'page-index'])->desc() //fix OR 'slug = page-akutAkut Tolk'
         ]);
         return $this->render('index', [
             'data' => $data

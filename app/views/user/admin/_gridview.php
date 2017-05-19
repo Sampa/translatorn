@@ -85,7 +85,7 @@ use yii\helpers\Url;
                         return '';
                     } else {
                         return Html::a('<span class="glyphicon glyphicon-pencil"></span>',
-                            "/user/admin/update?id=1", ['title' => "Uppdatera", 'aria-label' => "Uppdatera", 'data-pjax' => "0"]);
+                            "/user/admin/update?id=".$model->id, ['title' => "Uppdatera", 'aria-label' => "Uppdatera", 'data-pjax' => "0"]);
                     }
                 },
                 'delete' => function ($url, $model, $key) {
@@ -93,7 +93,7 @@ use yii\helpers\Url;
                         return '';
                     } else {
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>',
-                            "/user/admin/delete?id=1",
+                            Url::to(["/user/admin/delete",'id'=>$model->id]),
                             ['title' => "Radera", 'aria-label' => "Radera", 'data-pjax' => "0", 'data-confirm' => "Är du säker på att du vill radera objektet?"]);
                     }
                 },

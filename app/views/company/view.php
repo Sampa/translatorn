@@ -22,7 +22,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ] );?>
     <?php Pjax::end(); ?>
 
-
 <!--    <div class="col-md-5"> <!-- DETALJER -->
         <h3>Detaljer</h3>
         <?php if(Yii::$app->user->can('manager')): ?>
@@ -67,7 +66,5 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'inCompanyView' => true,
     ]); ?>
-
-<!--    </div>-->
 
 </div>

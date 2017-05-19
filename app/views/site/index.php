@@ -20,7 +20,6 @@ $this->title = $page->seo('title', $page->model->title);
             <!-- form side info -->
             <div class="col-xs-5 translatorn-index-side" >
                 <h1><?= Text::get('index-contact-title');?></h1>
-                <p><?= Text::get('index-side-desc') ?></p>
                 <p><?= Text::get('index-contact-name');?></p>
                 <p><?= Text::get('index-contact-streetzip');?></p>
                 <p><?= Text::get('index-contact-city');?></p>

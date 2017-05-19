@@ -2,8 +2,8 @@
 
 $params = require(__DIR__ . '/params.php');
 
-$basePath = '/customers/b/2/7/translatorn.nu//httpd.www/app';
-$webroot = '/customers/b/2/7/translatorn.nu//httpd.www/';
+$basePath = dirname(__DIR__);//'/customers/b/2/7/translatorn.nu//httpd.www/app';
+$webroot = dirname($basePath); //'/customers/b/2/7/translatorn.nu//httpd.www/';
 
 $config = [
     'id' => 'app',
@@ -33,6 +33,9 @@ $config = [
         ],
         'job' => [
             'class' => 'app\modules\job\JobModule',
+        ],
+        'sida' => [
+            'class' => 'app\modules\sida\SidaModule',
         ],
         'controllerMap' => [
             'migrate' => [
@@ -170,8 +173,8 @@ $config = [
                 ],
             ],
         ],
-//        'db' => require(__DIR__ . '/db.php'),
-        'db' => [
+        'db' => require(__DIR__ . '/db.php'),
+       /* 'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=translatorn.nu.mysql;dbname=translatorn_nu',
             'username' => 'translatorn_nu',
@@ -183,7 +186,7 @@ $config = [
             'schemaCacheDuration' => 3600,
             // Name of the cache component used to store schema information
             'schemaCache' => 'cache',
-            ]
+            ]*/
 //        'db_prod' => require(__DIR__ . '/db_production.php'),
     ],
     'params' => $params,
