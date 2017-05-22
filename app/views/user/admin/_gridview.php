@@ -11,7 +11,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
 
-<?php Pjax::begin() ?>
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
@@ -23,7 +22,7 @@ use yii\helpers\Url;
             'value' => function ($model) {
                 if ($model->username === 'root' && !Yii::$app->user->can('root'))
                     return $model->username;
-                return Html::a($model->username, Url::to(['/user/profile/show', 'id' => $model->id]), []);
+                return Html::a($model->username, Url::to(['//user/profile/show', 'id' => $model->id]), ['data-pjax'=>'0']);
             },
             'options' => ['class' => 'col-md-3'],
 
@@ -94,7 +93,7 @@ use yii\helpers\Url;
                     } else {
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>',
                             Url::to(["/user/admin/delete",'id'=>$model->id]),
-                            ['title' => "Radera", 'aria-label' => "Radera", 'data-pjax' => "0", 'data-confirm' => "Är du säker på att du vill radera objektet?"]);
+                            ['title' => "Radera", 'aria-label' => "Radera", 'data-pjax' => "0", 'data-method'=>'POST','data-confirm' => "Är du säker på att du vill radera objektet?"]);
                     }
                 },
 
@@ -112,4 +111,3 @@ use yii\helpers\Url;
     ],
 ]); ?>
 
-<?php Pjax::end() ?>

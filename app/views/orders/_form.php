@@ -89,8 +89,8 @@ $company = $user->company;
 
         </div>
         <?= $form->field($model, 'type')->radioList([
-            '1' => Yii::t('orders', 'On phone'),
-            '2' => Yii::t('orders', 'On site'),
+            '1' => Yii::t('orders', 'On site'),
+            '2' => Yii::t('orders', 'On phone'),
             '3' => Yii::t('orders', 'Other')
         ], ['class' => 'radio'])->label(false) ?>
 

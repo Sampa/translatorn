@@ -12,11 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="orders-index">
 
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-        <?php //echo Html::a(Yii::t('orders', 'Create Orders'), ['create'], ['class' => 'btn btn-success']) ?>
-
     <p>
         Lägg till en kostnadsräkning eller redigera inkorrekt information om en bokning genom att klicka på uppdatera.
     </p>
@@ -35,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=> 'bill_sent',
                 'value' => function($model){
-                    if( $model->bill_sent ){
+                    if( isset($model->files[0]) ){
                         return $model->billLink;
                     } else{
                         return 'Ej klar';
@@ -66,5 +61,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn', 'header' => 'Hantera'],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
 </div>

@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=> 'bill_sent',
                 'value' => function($model){
-                    if( $model->bill_sent ){
+                    if( isset($model->files[0]) ){
                         return $model->billLink;
                     } else{
                         return 'Ej klar';

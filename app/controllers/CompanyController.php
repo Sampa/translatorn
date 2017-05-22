@@ -105,6 +105,7 @@ class CompanyController extends Controller
         $model = new Company();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -124,6 +125,7 @@ class CompanyController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            var_dump(Yii::$app->request->post());
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

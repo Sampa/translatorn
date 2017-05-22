@@ -74,7 +74,6 @@ class OrdersSearch extends Orders
             'bill_paid_date' => $this->bill_paid_date,
             'created_date' => $this->created_date,
             'type' => $this->type,
-            'date' => $this->date,
             'time_end' => $this->time_end,
         ]);
 
@@ -86,6 +85,7 @@ class OrdersSearch extends Orders
             ->andFilterWhere(['like', 'bill_ref', $this->bill_ref])
             ->andFilterWhere(['like', 'other_type', $this->other_type])
             ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'date', $this->date])
             ->andFilterWhere(['like', 'org_nr', $this->org_nr])
             ->andFilterWhere(['like', 'message', $this->message])
             ->andFilterWhere(['like', 'made_by_email', $this->made_by_email])

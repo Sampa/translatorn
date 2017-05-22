@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             echo Html::a(Yii::t('app','Sign out') , ['//user/security/logout'],['class' => '','data-method'=>'post']);
                         }else {
                             echo '<i class="glyphicon glyphicon-user text-muted"></i>';
-                            echo $profile->user->username;
+                            echo ' '. $profile->name;
                         }
                     ?>
                 </li>

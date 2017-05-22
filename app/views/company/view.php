@@ -14,13 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="company-view"> <!-- row -->
 
     <h3>Fakturor</h3>
-    <?php Pjax::begin(); ?>
     <?= $this->render('/invoice/index',[
         'searchModel' => $invoiceSearchModel,
         'dataProvider' => $invoiceDataProvider,
         'inCompanyView' => true,
     ] );?>
-    <?php Pjax::end(); ?>
 
 <!--    <div class="col-md-5"> <!-- DETALJER -->
         <h3>Detaljer</h3>

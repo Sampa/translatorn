@@ -84,7 +84,7 @@ class ProfileController extends BaseProfileController
         }else {
             $dataProvider = $orderSearch->search(Yii::$app->request->queryParams);
         }
-
+        $dataProvider->pagination->pageSize = 10;
         $invoiceSearchModel = new InvoiceSearch();
         $invoiceSearchModel->company_id = 1;
         $invoiceDataProvider = $invoiceSearchModel->search(Yii::$app->request->queryParams);

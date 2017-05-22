@@ -62,7 +62,7 @@ class Invoice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['company_id'], 'required'],
+            [['company_id','date'], 'required'],
             [['company_id', 'status'], 'integer'],
             [['file','date'], 'safe'],
         ];

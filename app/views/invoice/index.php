@@ -12,7 +12,6 @@ use yii\widgets\Pjax;
 ?>
 <div class="invoice-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a(Yii::t('app', 'Create Invoice'), ['/invoice/create', 'company_id' => 1], ['class' => 'btn btn-success']) ?>

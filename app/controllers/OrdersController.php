@@ -109,7 +109,7 @@ class OrdersController extends Controller
                 return var_dump($model->getErrors()) . Yii::t('orders', 'Could not save order');
             }
         }
-        $dataProvider = $model->getLatest(Yii::$app->user->id,5); //limit not working and this is monthly
+        $dataProvider = $model->getLatest(Yii::$app->user->id,35); //limit not working and this is monthly
         return $this->render('create', [
             'model' => $model,
             'latest' => $dataProvider,

@@ -38,9 +38,7 @@ class UserSearch extends BaseUserSearch
     {
         $query = $this->finder->getUserQuery();
         $query->andFilterWhere(['not', ['username' => 'root']] );
-        if($this->company_id != null){
-            $query->andFilterWhere(['company_id' => $this->company_id]);
-        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -48,7 +46,9 @@ class UserSearch extends BaseUserSearch
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
-
+        if($this->company_id != null){
+            $query->andFilterWhere(['company_id' => $this->company_id]);
+        }
         if ($this->created_at !== null) {
             $date = strtotime($this->created_at);
             $query->andFilterWhere(['between', 'created_at', $date, $date + 3600 * 24]);

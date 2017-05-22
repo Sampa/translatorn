@@ -40,8 +40,8 @@ class Company extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [[ 'org_nr', 'street', 'email', 'city'], 'safe'],
-            [['zip', 'phone'], 'integer'],
-            [['extra_1', 'extra_2', 'extra_3','client_ref'], 'string'],
+            [['zip'], 'integer'],
+            [['extra_1', 'extra_2', 'extra_3','client_ref','phone'], 'string'],
             [['client_ref', 'name', 'org_nr', 'street', 'country', 'email', 'city'], 'string', 'max' => 255],
         ];
     }

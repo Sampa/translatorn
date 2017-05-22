@@ -20,17 +20,32 @@ $this->title = $page->seo('title', $page->model->title);
     <div id="translatorn-orders-content" style="overflow:auto; height: auto !important;">
         <!-- booking form -->
         <div class="col-xs-8 col-md-8" >
-            <div id="ordersForm" class="orders-create">
-               <?= $this->render('_form', ['model' => $model]) ?>
-            </div>
-            <?= $ordersView ?>
+            <?php if(isset($ordersView)):?>
+                <?= $ordersView ?>
+            <?php else: ?>
+                <div id="ordersForm" class="orders-create">
+                   <?= $this->render('_form', ['model' => $model]) ?>
+                </div>
+            <?php endif;?>
         </div>
 
         <!-- form side info -->
         <div class="col-xs-3 col-md-3 translatorn-orders-side">
             <h3><?= Text::get('orders-side-title') ?></h3>
             <div id="upcomingKR" class="col-md-12">
-                <?php foreach ($latest as $order) : ?>
+                <?php
+//                    echo \yii\widgets\ListView::widget([
+//                        'dataProvider' => $latest,
+//                        'options' => ['class' =>''],
+//                        'itemOptions' => ['class' => ''],
+//                        'itemView' => function ($model, $key, $index, $widget) {
+//                           return
+//                            '<div class="col-xs-6 col-md-6">' . $model->bill_ref . '</div>' .
+//                            '<div class="col-xs-5 col-md-5">' . $model->billLink . '</div>';
+//                        },
+//                    ]);
+                ?>
+                <?php foreach ($latest->getModels() as $order) : ?>
                     <div class="col-xs-6 col-md-6"><?= $order->bill_ref ?></div>
                     <div class="col-xs-5 col-md-5"><?= $order->billLink ?></div>
                 <?php endforeach; ?>

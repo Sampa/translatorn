@@ -8,7 +8,7 @@ $webroot = dirname($basePath); //'/customers/b/2/7/translatorn.nu//httpd.www/';
 $config = [
     'id' => 'app',
     'basePath' => $basePath,
-    'bootstrap' => ['log','assetsAutoCompress'],
+    'bootstrap' => ['log',],
     'runtimePath' => $webroot . '/runtime',
     'vendorPath' => $webroot . '/vendor',
     // set target language to be Swedish
@@ -18,8 +18,8 @@ $config = [
     'modules' => [
         'attachments' => [
             'class' => nemmo\attachments\Module::className(),
-            'tempPath' => '@app/uploads/temp',
-            'storePath' => '@app/uploads/store',
+            'tempPath' => $basePath.'/uploads/temp',
+            'storePath' => $basePath.'/uploads/store',
             'rules' => [ // Rules according to the FileValidator
                 'maxFiles' => 1, // Allow to upload maximum 3 files, default to 3
                 'mimeTypes' => 'application/pdf', // Only png images
@@ -49,9 +49,13 @@ $config = [
     ],
 
     'components' => [
-        'assetsAutoCompress' =>
-        [
+        'assetsAutoCompress' =>[
             'class' => '\skeeks\yii2\assetsAuto\AssetsAutoCompressComponent',
+        ],
+        'response' => [
+//            'format' => yii\web\Response::FORMAT_JSON,
+//            'charset' => 'UTF-8',
+//                'class' =>'app\models\Response',
         ],
         'view' => [
             'theme' => [
