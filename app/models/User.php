@@ -32,6 +32,7 @@ class User extends BaseUser
         $rules['company_idRequired'] = ['company_id', 'required'];
         $rules['is_bossSafe'] = ['is_boss', 'safe'];
         $rules['company_idLength']   = ['company_id', 'string', 'max' => 10];
+        $rules['passwordRequiced'] = ['password', 'required'];
 
 
         return $rules;

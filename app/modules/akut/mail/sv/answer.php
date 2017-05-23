@@ -1,11 +1,11 @@
 <?php
 $this->title = $subject;
 ?>
-<p><?= nl2br($feedback->answer_text) ?></p>
+<p><?= nl2br($akut->answer_text) ?></p>
 <br/>
 <br/>
 <hr>
-<p><?= Yii::$app->formatter->asDatetime($feedback->time, 'medium') ?> skrev du:</p>
+<p><?= Yii::$app->formatter->asDatetime($akut->time, 'medium') ?> skrev du:</p>
 <p>
-    <?php foreach(explode("\n", $feedback->text) as $line) echo '> '.$line.'<br/>'; ?>
+    <?php foreach(explode("\n", $akut->text) as $line) echo '> '.$line.'<br/>'; ?>
 </p>

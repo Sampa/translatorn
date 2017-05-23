@@ -50,7 +50,7 @@ use yii\easyii\modules\text\api\Text;
                         Html::tag('h4', yii::t('app','Login'), ['class' => 'menu-text']);
 
                     $labelJob = $jobImg.
-                        Html::tag('h4', yii::t('app','Looking for a job?'), ['class' => 'menu-text']);
+                        Html::tag('h4', yii::t('app','Work with us'), ['class' => 'menu-text']);
 
                     $labelEditBook = $bookImg.
                         Html::tag('h4', yii::t('app','Edit book page'), ['class' => 'menu-text']);

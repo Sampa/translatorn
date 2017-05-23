@@ -3,11 +3,11 @@ use yii\helpers\Html;
 use app\modules\akut\models\Akut;
 use yii\widgets\ActiveForm;
 
-$this->title = Yii::t('akut', 'View feedback');
+$this->title = Yii::t('akut', 'Se förfrågan');
 $this->registerCss('.feedback-view dt{margin-bottom: 10px;}');
 
 if($model->status == Akut::STATUS_ANSWERED) {
-    $this->registerJs('$(".send-answer").click(function(){return confirm("'.Yii::t('easyii/akut', 'Are you sure you want to resend the answer?').'");})');
+    $this->registerJs('$(".send-answer").click(function(){return confirm("'.Yii::t('akut', 'Are you sure you want to resend the answer?').'");})');
 }
 ?>
 <?= $this->render('_menu', ['noanswer' => $model->status == Akut::STATUS_ANSWERED]) ?>

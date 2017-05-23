@@ -25,5 +25,14 @@ return [
     'Translation should be made' => 'Tolkning skall ske',
     'Start time' => 'Start',
     'Subject' => 'Ämne',
+    'Feedback' => 'Feedback',
+    'No answer' => 'Inget svar',
+    'Hello,' => 'Hej,',
+    'Answer on your feedback message' => 'Svar på ditt meddelande',
+    'Best regards.' => 'Vänliga hälsningar.',
+    'Mark as answered' => 'Markera som besvarat',
+    'feedback answer' => 'feedback svar',
+    'Are you sure you want to resend the answer?' => 'Är du säker på att du vill skicka svaret igen?',
+    'Anti-spam check' => 'Anti-spam kontroll'
 
 ];

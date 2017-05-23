@@ -53,10 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-9">
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="alert alert-info">
-                    <?= Yii::t('app', 'Credentials will be sent to the user by email') ?>.
-                    <?= Yii::t('app', 'A password will be generated automatically if not provided') ?>.
-                </div>
                 <?php $form = ActiveForm::begin([
                     'layout' => 'horizontal',
                     'enableAjaxValidation' => true,

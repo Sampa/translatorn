@@ -32,7 +32,7 @@ use yii\widgets\Pjax;
             [
                 'attribute' => 'date',
                 'value' => function($model){
-                    return $model->getFormatDate("m-d-Y");
+                    return $model->getFormatDate("d-m-Y");
                 },
                 'options' => ['class' => 'col-md-3'],
             ],

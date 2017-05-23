@@ -5,6 +5,7 @@
         'Book translator' => 'Boka tolk',
         'Acute translator' => 'Akut tolk',
         'Looking for a job?' => 'Söker du jobb?',
+        'Work with us' => 'Jobba med oss',
         'For customers' => 'För avtalskunder',
         'Book' => 'Boka',
         'Home' => 'Hem',

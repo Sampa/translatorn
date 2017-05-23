@@ -99,10 +99,11 @@ class OrdersController extends Controller
         $model = new Orders();
         $ordersView = null;
         $count = Setting::get('BookingRefCounter');
+        $model->bill_sent = 0;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->bill_ref = $count+$model->id .' '. $model->date. ' ' . $model->language;
             if( $model->save() ) {
-                $ordersView = $this->renderPartial('customerBokaView', [
+                $ordersView = $this->renderPartial('customerbokaview', [
                     'model' => $model,
                 ]);
             } else{
@@ -130,8 +131,9 @@ class OrdersController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if(isset($this->files[0])){
-                $this->bill_sent = true;
+            if(isset($model->files[0])){
+                $model->bill_sent = true;
+                $model->update();
             }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

@@ -108,22 +108,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php if(isset($companyInfo)){
                     echo $companyInfo;
                 }?>
-                <?php Pjax::begin(); ?>
                 <?= \yii\grid\GridView::widget([
                     'dataProvider' => $dataProvider,
                     'filterModel' => $searchModel,
                     'columns' => [
                         [
-                            'attribute' => 'bill_sent',
-                            'value' => function ($model) {
-                                if ($model->bill_sent) {
+                            'attribute'=> 'bill_sent',
+                            'value' => function($model){
+                                if( isset($model->files[0]) ){
                                     return $model->billLink;
-                                } else {
+                                } else{
                                     return 'Ej klar';
                                 }
                             },
                             'format' => 'html',
-                            'options' => ['class' => 'col-md-3'],
+                            'filter' => $searchModel->billSentList,
+                            'options' => ['class' => 'col-md-2'],
                         ],
                         [
                             'attribute' => 'bill_ref',
@@ -136,7 +136,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                            }
 //                       ],
 //                        'bill_location',
-                        'company_name',
+//                        'company_name',
                          [
                              'attribute' => 'user_id',
                              'filter' => function($model) {
@@ -145,7 +145,7 @@ $this->params['breadcrumbs'][] = $this->title;
                              'value' => function($model){
                                  return $model->user->username;
                              },
-                             'options' => ['class' => 'col-md-1'],
+                             'options' => ['class' => 'col-md-3'],
 //                             'visible' => !$profile->user->is_boss == null,
                          ],
                          [
@@ -161,8 +161,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                     ],
                 ]); ?>
-                <?php Pjax::end(); ?>
-
             </div>
         </div>
     </div>

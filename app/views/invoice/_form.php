@@ -31,7 +31,7 @@ use kartik\date\DatePicker;
         'size' => 'sm',
         'pluginOptions' => [
             'autoclose' => true,
-            'format' => 'yyyy-dd-mm',
+//            'format' => 'mm-dd-yyyy',
         ]
     ])->label(false) ?>
 

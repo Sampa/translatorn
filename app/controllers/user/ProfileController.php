@@ -81,7 +81,8 @@ class ProfileController extends BaseProfileController
         $orderSearch->company_name = $company->name;
         if($profile->user->is_boss == null) {
             $dataProvider = $orderSearch->getOrdersByUserId($user->id);
-        }else {
+//            $orderSearch->user_id = $profile->user->username;
+        }else{
             $dataProvider = $orderSearch->search(Yii::$app->request->queryParams);
         }
         $dataProvider->pagination->pageSize = 10;
