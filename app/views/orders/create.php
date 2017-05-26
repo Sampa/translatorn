@@ -14,11 +14,12 @@ $page = Page::get('page-index');
 
 $this->title = $page->seo('title', $page->model->title);
 ?>
-<?php Pjax::begin(); ?>
 
 <div class="translatorn-content-wrapper">
     <div id="translatorn-orders-content" style="overflow:auto; height: auto !important;">
         <!-- booking form -->
+        <?php Pjax::begin(); ?>
+
         <div class="col-xs-8 col-md-8" >
             <?php if(isset($ordersView)):?>
                 <?= $ordersView ?>
@@ -28,6 +29,7 @@ $this->title = $page->seo('title', $page->model->title);
                 </div>
             <?php endif;?>
         </div>
+        <?php Pjax::end(); ?>
 
         <!-- form side info -->
         <div class="col-xs-3 col-md-3 translatorn-orders-side">
@@ -55,6 +57,5 @@ $this->title = $page->seo('title', $page->model->title);
 
     <?= $this->render('/site/_index', []); ?>
 </div>
-<?php Pjax::end(); ?>
 
 

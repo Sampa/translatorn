@@ -1,15 +1,20 @@
 <?php
-use yii\helpers\Url;
-use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
 use yii\helpers\Html;
 use yii\easyii\modules\text\api\Text;
 
 ?>
 <?php $this->beginContent('@app/views/layouts/base.php'); ?>
-
+<?php
+/*
+ * This is to find out what the first word in the url is so that we know if the menuitem for the user account should
+ * have class="active"
+ */
+if(explode("/",Yii::$app->request->pathInfo)[0] == "user")  $accountPage = 'active'; else $accountPage = null;
+?>
 <div id="wrapper">
-        <main class="center">
+
+    <main class="center">
             <div id="translatorn-head" class="">
                 <div class="col-xs-8 col-xs-push-0 logo" >
                     <img src="/image/logo_black.png" width="58" height="58">
@@ -39,7 +44,7 @@ use yii\easyii\modules\text\api\Text;
                     $akutImg = Html::tag('div', '', ['class' => 'akut_icon']);
                     $loginImg = Html::tag('div', '', ['class' => 'login_icon']);
                     $jobImg = Html::tag('div', '', ['class' => 'job_icon']);
-
+                    $accountImg = Html::tag('div', '', ['class' => 'account_icon']);
                     $labelBook = $bookImg.
                         Html::tag('h4', yii::t('app','Book translator'), ['class' => 'menu-text']) .
                         Html::tag('span', yii::t('app',''), ['class' => 'menu-sub-text']);
@@ -58,8 +63,8 @@ use yii\easyii\modules\text\api\Text;
                     $labelLogout = $loginImg;
                     Yii::$app->user->isGuest ? '' : $labelLogout .= Html::tag('h4', 'Sign out' , ['class'=> 'menu-text'] );
 
-                    $labelBill = $loginImg.
-                        Html::tag('h4', 'Konto' , ['class'=> 'menu-text'] );
+                    $labelBill = $accountImg.
+                        Html::tag('h4', 'K-räkningar' , ['class'=> 'menu-text'] );
 
                     $labelCompany = $loginImg.
                         Html::tag('h4', 'Företag' , ['class'=> 'menu-text'] );
@@ -98,9 +103,9 @@ use yii\easyii\modules\text\api\Text;
                             'label' =>$labelBill,
                             'url' => ['/user/'.Yii::$app->user->id],
                             'visible' =>Yii::$app->user->can('customer'),
-                            'options' =>['class' => 'login']
-                        ],
+                            'options' =>['class' => 'account '.$accountPage],
 
+                        ],
                         [
                             'label' =>$labelCompany,
                             'url' => ['/company/'],

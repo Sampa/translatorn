@@ -174,7 +174,7 @@ class Orders extends \yii\db\ActiveRecord
 
     public function getBillLink(){
         if(isset($this->files[0]))
-            return Html::a('Ladda ner',$this->files[0]['url'],['class' =>'green']);
+            return Html::a('Ladda ner',$this->files[0]['url'],['data-pjax'=>'0','class' =>'green']);
         else
             return Html::tag('span','EJ KLAR');
     }

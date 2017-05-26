@@ -92,6 +92,13 @@
     background: url('/image/login_green.png') no-repeat;
 }
 
+#navbar-menu > ul > li.account > a > .account_icon{
+    background: url('/image/account_white.png') no-repeat;
+}
+#navbar-menu > ul > li.active > a > .account_icon{
+    background: url('/image/account_green.png') no-repeat;
+}
+
 #navbar-menu > ul > li.home > a > .home_icon{
     background: url('/image/home_white.png') no-repeat;
 }
@@ -144,7 +151,8 @@
 #navbar-menu > ul > li.book > a > .book_icon,
 #navbar-menu > ul > li.login > a > .login_icon,
 #navbar-menu > ul > li.home > a > .home_icon,
-#navbar-menu > ul > li.job > a > .job_icon
+#navbar-menu > ul > li.job > a > .job_icon,
+#navbar-menu > ul > li.account > a > .account_icon
 {
     height: 109px;
     width: 124px;
@@ -204,6 +212,9 @@ h4.menu-text{
     width: 234px;
     background: #5FCB76;
     color: #fff;
+}
+.translatorn-page-account-summary {
+    width: 248px;
 }
 .translatorn-page-akut-summary {
     margin-left: 234px;

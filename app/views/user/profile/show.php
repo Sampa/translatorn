@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="greenbg row">
-    <div class="col-xs-2 col-md-2 translatorn-page-summary translatorn-page-akut-summary" style="margin-left: 1px;">
+    <div class="col-xs-2 col-md-2 translatorn-page-summary translatorn-page-account-summary" style="margin-left: 1px;">
         <h1><?= Text::get('profile-welcome-title') ?></h1>
 
         <p><?= Text::get('profile-welcome-desc') ?></p>
@@ -102,7 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="col-xs-9 col-md-7" style="color:#fff; min-height: 400px; height: 100%; margin-left:10px;">
             <h2><?= Text::get('profile-content-title') ?></h2>
-            <p><?= Text::get('profile-content-desc') ?></p>
+<!--            <p>--><?//= Text::get('profile-content-desc') ?><!--</p>-->
             <div id="user-translatorn-bills" class="container well green col-xs-12 col-md-12" style="background-color: rgba(255,255,2550,1)">
 
                 <?php if(isset($companyInfo)){
@@ -146,7 +146,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                  return $model->user->username;
                              },
                              'options' => ['class' => 'col-md-3'],
-//                             'visible' => !$profile->user->is_boss == null,
+                             'visible' => $profile->user->is_boss == 1,
                          ],
                          [
                             'class' => 'yii\grid\ActionColumn',

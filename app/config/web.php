@@ -7,6 +7,7 @@ $webroot = dirname($basePath); //'/customers/b/2/7/translatorn.nu//httpd.www/';
 
 $config = [
     'id' => 'app',
+    'name' => 'Translatorn.se',
     'basePath' => $basePath,
     'bootstrap' => ['log',],
     'runtimePath' => $webroot . '/runtime',
@@ -143,7 +144,6 @@ $config = [
                 'company/view/<id:\d+>' => 'company/view',
                 'company/update/<id:\d+>' => 'company/update',
                 'admin/page/a/edit/<id:\d+>' => 'admin/sida/a/edit',
-//                'profile/<id\+>' => 'user/profile/show',
                 'boka' => 'orders/create',
                 'order-admin' => 'orders/index',
                 'customers' => 'admin/default/view-customers',

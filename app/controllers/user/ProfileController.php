@@ -78,13 +78,16 @@ class ProfileController extends BaseProfileController
         }
 
         $orderSearch = new OrdersSearch();
-        $orderSearch->company_name = $company->name;
-        if($profile->user->is_boss == null) {
-            $dataProvider = $orderSearch->getOrdersByUserId($user->id);
-//            $orderSearch->user_id = $profile->user->username;
+        $params = Yii::$app->request->queryParams;
+        $params['OrdersSearch']['company_name'] = $company->name;
+        if($profile->user->is_boss == 0) {
+//            $dataProvider = $orderSearch->getOrdersByUserId($user->id);
+            $params['OrdersSearch']['user_id'] = $profile->user->username;
         }else{
-            $dataProvider = $orderSearch->search(Yii::$app->request->queryParams);
+            $parmas['OrdersSearch']['user_id'] = null;
         }
+        $dataProvider = $orderSearch->search($params);
+
         $dataProvider->pagination->pageSize = 10;
         $invoiceSearchModel = new InvoiceSearch();
         $invoiceSearchModel->company_id = 1;
