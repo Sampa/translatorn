@@ -45,9 +45,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'phone',
                 'org_nr',
                 'message:ntext',
-                'made_by_email:email',
+                'made_by_email',
                 'bill_location',
-                'email:email',
+                'email',
                 'company_name',
                 [
                     'attribute' => 'time_start',

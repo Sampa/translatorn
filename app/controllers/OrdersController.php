@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\UserSearch;
 use Yii;
 use app\models\Orders;
 use app\models\OrdersSearch;
+use yii\easyii\helpers\Mail;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\easyii\models\Setting;
@@ -96,6 +98,7 @@ class OrdersController extends Controller
     public function actionCreate()
     {
         $this->layout = 'main';
+
         $model = new Orders();
         $ordersView = null;
         $count = Setting::get('BookingRefCounter');
@@ -106,11 +109,23 @@ class OrdersController extends Controller
                 $ordersView = $this->renderPartial('customerbokaview', [
                     'model' => $model,
                 ]);
+                $mailer = new \app\models\Mailer();
+                $mailer->sendNoticeMessage(\app\models\User::findOne(Yii::$app->user->id));
+//                Yii::$app->mailer->compose()
+//                    ->setFrom('noreply@translatorn.se')
+//                    ->setSubject('Det har gjorts en ny bokning')
+//                    ->setTo(yii\easyii\models\Setting::get('booking_notice'))
+////            ->setTextBody('Plain text content')
+//                    ->setHtmlBody(
+//                        '<b> En ny bokning gjordes av' . $model->made_by . '</b>'
+//
+//                    )->send();
             } else{
                 return var_dump($model->getErrors()) . Yii::t('orders', 'Could not save order');
             }
         }
         $dataProvider = $model->getLatest(Yii::$app->user->id,35); //limit not working and this is monthly
+
         return $this->render('create', [
             'model' => $model,
             'latest' => $dataProvider,

@@ -35,5 +35,6 @@ return [
     'Time End' => 'Sluttid',
     'Update' => 'Ändra',
     'Delete' => 'Radera',
-    'Site' => 'Plats'
+    'Site' => 'Plats',
+    'Click the link below to view orders' => 'Klicka på länken nedan för att komma till alla bokningar',
 ];

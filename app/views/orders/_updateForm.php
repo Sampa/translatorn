@@ -80,18 +80,16 @@ use kartik\time\TimePicker;
 <div class="col-md-6">
     <?= $form->field($model, 'org_nr')->textInput(['maxlength' => true, 'placeholder' => 'Organisationsnummer *'])->label(false) ?>
 
-
     <?= $form->field($model, 'made_by')->textInput(['maxlength' => true, 'placeholder' => 'Beställare *'])->label(false) ?>
 
     <?= $form->field($model, 'made_by_email')->textInput(['maxlength' => true, 'placeholder' => 'Kontaktuppgift  *'])->label(false) ?>
 
-    <?= $form->field($model, 'bill_location')->textInput(['maxlength' => true, 'placeholder' => 'Kostnadsställe'])->label(false) ?>
-
     <?= $form->field($model, 'message')->textarea(['placeholder' => 'Meddelande/Önskemål'])->label(false) ?>
-
 
     <?= $form->field($model, 'other_type')->textInput(['style' => 'display:none', 'maxlength' => true, 'placeholder' => 'Annan tolkplats'])->label(false) ?>
 
+
+    <?= $form->field($model, 'bill_location')->hiddenInput(['maxlength' => true, 'placeholder' => 'Kostnadsställe'])->label(false) ?>
     <?= $form->field($model, 'location')->hiddenInput(['maxlength' => true, 'placeholder' => 'Plats för tolkuppdraget'])->label(false) ?>
     <?= $form->field($model, 'reference')->hiddenInput(['maxlength' => true, 'placeholder' => 'Ärendenummer'])->label(false) ?>
     <?= $form->field($model, 'bill_sent')->hiddenInput()->label(false) ?>

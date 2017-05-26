@@ -102,7 +102,7 @@ class Orders extends \yii\db\ActiveRecord
             'reference' => Yii::t('orders', 'Reference'),
             'language' => Yii::t('orders', 'Language'),
             'location' => Yii::t('orders', 'Address for this task'),
-            'bill_sent' => Yii::t('orders', 'Ladda hem'),
+            'bill_sent' => Yii::t('orders', 'PDF'),
             'bill_paid' => Yii::t('orders', 'Bill paid'),
             'bill_sent_date' => Yii::t('orders', 'Bill was sent'),
             'bill_paid_date' => Yii::t('orders', 'Bill was paid'),
@@ -123,6 +123,11 @@ class Orders extends \yii\db\ActiveRecord
             'time_end' => Yii::t('orders', 'Time End'),
             'time_start' => Yii::t('orders', 'Time Start'),
         ];
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        return  parent::afterSave($insert, $changedAttributes);
     }
 
     /**

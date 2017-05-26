@@ -85,18 +85,18 @@ $this->params['breadcrumbs'][] = $this->title;
             <p><?= Html::encode($profile->bio) ?></p>
         <?php endif; ?>
 
+        <?php if($profile->user->is_boss): ?>
+
         <!-- fakturor -->
         <div class="panel panel-default">
-            <!-- Default panel contents -->
             <div class="panel-heading"><?=Yii::t('app','Invoices') ?></div>
-
-            <!-- Table -->
-            <table class="table">
-                <?php foreach ($invoiceDataProvider->getModels() as $model): ?>
-                    <tr class="green"><td ><?=$model->fileLink?></td><td><?=$model->getFormatDate("j M");?></td></tr>
-                <?php endforeach;?>
-            </table>
+                <table class="table">
+                    <?php foreach ($invoiceDataProvider->getModels() as $model): ?>
+                        <tr class="green"><td ><?=$model->fileLink?></td><td><?=$model->getFormatDate("j M");?></td></tr>
+                    <?php endforeach;?>
+                </table>
         </div>
+        <?php  endif;?>
 
     </div>
     <div class="container">

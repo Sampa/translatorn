@@ -58,7 +58,7 @@ if(explode("/",Yii::$app->request->pathInfo)[0] == "user")  $accountPage = 'acti
                         Html::tag('h4', yii::t('app','Work with us'), ['class' => 'menu-text']);
 
                     $labelEditBook = $bookImg.
-                        Html::tag('h4', yii::t('app','Edit book page'), ['class' => 'menu-text']);
+                        Html::tag('h4', yii::t('app','K-räkningar'), ['class' => 'menu-text']);
 
                     $labelLogout = $loginImg;
                     Yii::$app->user->isGuest ? '' : $labelLogout .= Html::tag('h4', 'Sign out' , ['class'=> 'menu-text'] );
@@ -115,7 +115,7 @@ if(explode("/",Yii::$app->request->pathInfo)[0] == "user")  $accountPage = 'acti
 
                         [
                             'label' => $labelEditBook,
-                            'url' => ['/orders/create'],
+                            'url' => ['/order-admin'],
                             'visible' => Yii::$app->user->can('manager'),
                             'options' =>['class' => 'book']
                         ],
