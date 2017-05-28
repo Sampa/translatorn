@@ -4,6 +4,7 @@ namespace app\modules\akut\models;
 use Yii;
 use yii\easyii\behaviors\CalculateNotice;
 use yii\easyii\helpers\Mail;
+use app\models\Mailer;
 use yii\easyii\models\Setting;
 use yii\easyii\validators\ReCaptchaValidator;
 use yii\easyii\validators\EscapeValidator;
@@ -96,7 +97,8 @@ class Akut extends \yii\easyii\components\ActiveRecord
         if(!$settings['mailAdminOnNewFeedback']){
             return false;
         }
-        return Mail::send(
+        return Mailer::send(
+            'akutbokning@translatorn.se',
             Setting::get('admin_email'),
             $settings['subjectOnNewFeedback'],
             $settings['templateOnNewFeedback'],
@@ -108,7 +110,8 @@ class Akut extends \yii\easyii\components\ActiveRecord
     {
         $settings = Yii::$app->getModule('admin')->activeModules['akut']->settings;
 
-        return Mail::send(
+        return Mailer::send(
+            'boka@translatorn.se',
             $this->email,
             $this->answer_subject,
             $settings['answerTemplate'],

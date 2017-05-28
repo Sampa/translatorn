@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'org_nr',
                 'message:ntext',
                 'made_by_email',
-                'bill_location',
+//                'bill_location',
                 'email',
                 'company_name',
                 [
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'date',
                     'value' => $model->dayMonth
                 ],
-                //            'reference',
+                            'reference',
                 //            'bill_paid',
                 //            'bill_sent_date',
                 //            'bill_paid_date',

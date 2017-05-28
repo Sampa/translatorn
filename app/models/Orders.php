@@ -8,7 +8,7 @@ use yii\db\Expression;
 use yii\helpers\Html;
 use dektrium\user\models\User;
 use yii\data\ActiveDataProvider;
-use yii\db\Query;
+use yii\easyii\models\Setting;
 /**
  * This is the model class for table "orders".
  *
@@ -221,6 +221,23 @@ class Orders extends \yii\db\ActiveRecord
     public function getDayMonth()
     {
         return substr($this->date,0,5);
+    }
+
+    public function setNewAttributes(){
+        $this->bill_sent = 0;
+        $user = Yii::$app->user->identity;
+        $company = $user->company;
+        $this->org_nr = (isset($company->org_nr)) ? $company->org_nr : '';
+        $this->company_name = (isset($company->name)) ? $company->name : '';
+        $this->made_by = $user->username;
+        $this->user_id = $user->id;
+        if($this->save()) {
+            $count = Setting::get('BookingRefCounter');
+            $this->bill_ref = $count + $this->id . ' ' . $this->date . ' ' . $this->language;
+            if($this->update())
+                return true;
+        }
+        return false;
     }
 
     /**

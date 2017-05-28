@@ -280,7 +280,8 @@ h4.menu-text{
     z-index: 2;
 }
 #translatorn-index-content, #translatorn-orders-content{
-    background: url('/image/bg_alpha.png') no-repeat;
+    background: #4FA561 !important;
+    /*background: url('/image/bg_alpha.png') no-repeat;*/
     min-height: 300px;
     height: auto !important;
     background-color: rgba(200,200,200,0.13);

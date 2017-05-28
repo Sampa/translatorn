@@ -21,6 +21,7 @@ $company = $user->company;
         <?= $form->field($model, 'company_name')->textInput([
             'maxlength' => true,
             'placeholder' => 'Företagsnamn *',
+            'readonly' => true,
             'value' => (isset($company->name)) ? $company->name : '',
         ])->label(false) ?>
 
@@ -103,6 +104,7 @@ $company = $user->company;
         <?= $form->field($model, 'org_nr')->textInput([
             'maxlength' => true,
             'placeholder' => 'Organisationsnummer *',
+            'readonly' => true,
             'value' => (isset($company->org_nr)) ? $company->org_nr : '',
         ])->label(false) ?>
 
@@ -110,6 +112,7 @@ $company = $user->company;
         <?= $form->field($model, 'made_by')->textInput([
             'maxlength' => true,
             'placeholder' => 'Beställare *',
+            'readonly' => true,
             'value' => $user->username,
             ])->label(false) ?>
 
@@ -119,6 +122,7 @@ $company = $user->company;
             'value' => $user->email,
         ])->label(false) ?>
 
+        <?= $form->field($model, 'reference')->textInput(['maxlength' => true, 'placeholder' => 'Er referens'])->label(false) ?>
         <?= $form->field($model, 'message')->textarea(['placeholder' => 'Meddelande/Önskemål'])->label(false) ?>
 
         <?= $form->field($model, 'other_type')->textInput(['style' => 'display:none', 'maxlength' => true, 'placeholder' => 'Annan tolkplats'])->label(false) ?>
@@ -127,13 +131,10 @@ $company = $user->company;
 
         <?= $form->field($model, 'bill_location')->hiddenInput(['maxlength' => true, 'placeholder' => 'Kostnadsställe'])->label(false) ?>
         <?= $form->field($model, 'location')->hiddenInput(['maxlength' => true, 'placeholder' => 'Plats för tolkuppdraget'])->label(false) ?>
-        <?= $form->field($model, 'reference')->hiddenInput(['maxlength' => true, 'placeholder' => 'Ärendenummer'])->label(false) ?>
-        <?= $form->field($model, 'bill_sent')->hiddenInput()->label(false) ?>
         <?= $form->field($model, 'bill_paid')->hiddenInput()->label(false) ?>
         <?= $form->field($model, 'bill_sent_date')->hiddenInput()->label(false) ?>
         <?= $form->field($model, 'bill_paid_date')->hiddenInput()->label(false) ?>
         <?= $form->field($model, 'created_date')->hiddenInput()->label(false) ?>
-        <?= $form->field($model, 'user_id')->hiddenInput(['value' => Yii::$app->user->id])->label(false) ?>
     </div>
     <br>
     <div class="col-md-12 form-group">
@@ -146,6 +147,11 @@ $company = $user->company;
 
 </div>
 <?php $this->registerJs(' 
+    console.log();
+    $(\'form\').on("submit",function()
+    {
+            $(\'button[type="submit"]\').prop("disabled", true);
+    });
     $(\'input[type="radio"]\').click(function()
     {
         if($(this).attr("value")=="3")

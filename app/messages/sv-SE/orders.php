@@ -5,7 +5,7 @@ return [
     'Translation should be made:' => 'Tolkningen skall ske:',
     'Language' => 'Språk',
     'Contact person' => 'Beställarens namn',
-    'Reference' => 'Referens / Ärendenr',
+    'Reference' => 'Referens',
     'Address for this task' => 'Adress för tolkningsuppdraget',
     'Booked by' => 'Beställarens namn',
     'Bill sent' => 'Faktura skickad',

@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'date',
                 'value' => $model->dayMonth
             ],
-            //            'reference',
+                        'reference',
             //            'bill_paid',
             //            'bill_sent_date',
             //            'bill_paid_date',
