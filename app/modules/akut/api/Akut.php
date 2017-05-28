@@ -49,6 +49,7 @@ class Akut extends \yii\easyii\components\API
         echo $form->field($model, 'date')->textInput(['placeholder' => 'Datum *'])->label(false);
 
         echo $form->field($model, 'time_start')->textInput(['placeholder' => 'Start tid *'])->label(false);
+        echo $form->field($model, 'time_end')->textInput(['placeholder' => 'Slut tid *'])->label(false);
 
         echo $form->field($model, 'email')->input('email', ['placeholder' => 'E-post *'])->label(false);
 
@@ -61,7 +62,7 @@ class Akut extends \yii\easyii\components\API
 
         if($settings['enableCaptcha']) echo $form->field($model, 'reCaptcha')->widget(ReCaptcha::className())->label(false);
 
-        echo Html::submitButton(Yii::t('app', 'Skicka förfrågan'), ['class' => 'btn btn-success']);
+        echo Html::submitButton(Yii::t('app', 'Skicka förfrågan'), ['class' => 'btn btn-success','style'=>'margin-bottom:10px;']);
         ActiveForm::end();
 
         return ob_get_clean();

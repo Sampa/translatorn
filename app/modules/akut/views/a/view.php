@@ -41,6 +41,9 @@ if($model->status == Akut::STATUS_ANSWERED) {
     <dt><?= Yii::t('akut', 'Start time') ?></dt>
     <dd><?= $model->time_start ?></dd>
 
+    <dt><?= Yii::t('akut', 'End time') ?></dt>
+    <dd><?= $model->time_end ?></dd>
+
     <dt><?= Yii::t('akut', 'Language') ?></dt>
     <dd><?= $model->language ?></dd>
 
